@@ -43,6 +43,8 @@
     background-repeat: space;
     background-position: center;
     position: relative;
+    background-blend-mode: soft-light;
+    background-color: rgba(255, 255, 255, 0.97);
   }
 
   .bg-pattern > * {
