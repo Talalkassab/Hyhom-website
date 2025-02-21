@@ -10,7 +10,7 @@ export function Logo({ className = "" }: LogoProps) {
   return (
     <div className={`flex items-center ${className}`}>
       <img 
-        src="/logo.png" 
+        src="/logo.svg" 
         alt="Hyhom Limited"
         className="h-12 w-auto"
       />
