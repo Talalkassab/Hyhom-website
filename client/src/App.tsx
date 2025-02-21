@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Layout } from "@/components/layout/Layout";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
-import Services from "@/pages/Services";
+import Brands from "@/pages/Brands";
 import Contact from "@/pages/Contact";
 import NotFound from "@/pages/not-found";
 
@@ -14,7 +14,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/about" component={About} />
-      <Route path="/services" component={Services} />
+      <Route path="/brands" component={Brands} />
       <Route path="/contact" component={Contact} />
       <Route component={NotFound} />
     </Switch>
