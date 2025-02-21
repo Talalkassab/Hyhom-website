@@ -39,7 +39,7 @@
   .bg-pattern {
     background-color: #ffffff;
     background-image: url("/pattern.png");
-    background-size: 200px;
+    background-size: 50px;
     background-repeat: repeat;
     background-position: center;
     position: relative;
