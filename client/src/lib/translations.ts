@@ -2,7 +2,7 @@ export const translations = {
   en: {
     "nav.home": "Home",
     "nav.about": "About",
-    "nav.services": "Services",
+    "nav.brands": "Brands",
     "nav.contact": "Contact",
     "hero.tagline": "Innovative Food & Beverage Experiences for Everyday Life",
     "hero.intro": "Welcome to Hyhom Limited – delivering passion and innovation in the food and beverage industry, and beyond.",
@@ -23,7 +23,7 @@ export const translations = {
   ar: {
     "nav.home": "الرئيسية",
     "nav.about": "من نحن",
-    "nav.services": "الخدمات",
+    "nav.brands": "العلامات التجارية",
     "nav.contact": "اتصل بنا",
     "hero.tagline": "تجارب طعام وشراب مبتكرة لحياة يومية أكثر متعة",
     "hero.intro": "مرحبًا بكم في Hyhom Limited – نقدم الشغف والابتكار في قطاع الأغذية والمشروبات، والمزيد",
