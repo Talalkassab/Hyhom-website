@@ -39,16 +39,16 @@
   .bg-pattern {
     background-color: #ffffff;
     background-image: url("/pattern.png");
-    background-size: 35px;
-    background-repeat: space;
+    background-size: 100px;
+    background-repeat: repeat;
     background-position: center;
     position: relative;
-    background-blend-mode: soft-light;
-    background-color: rgba(255, 255, 255, 0.97);
+    opacity: 0.15;
   }
 
   .bg-pattern > * {
     position: relative;
     z-index: 1;
+    opacity: 1;
   }
 }
