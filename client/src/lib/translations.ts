@@ -18,7 +18,8 @@ export const translations = {
     "services.indian.title": "Indian Fast Food",
     "services.indian.description": "A restaurant specialized in Indian fast food, serving delicious meals in creative packaging that is easy to enjoy anywhere.",
     "services.burger.title": "Burger Concept",
-    "services.burger.description": "Enjoy classic, high-quality beef burgers, provided in simple packaging and cooked with love."
+    "services.burger.description": "Enjoy classic, high-quality beef burgers, provided in simple packaging and cooked with love.",
+    "nav.logo_customizer": "Logo Customizer",
   },
   ar: {
     "nav.home": "الرئيسية",
@@ -39,6 +40,7 @@ export const translations = {
     "services.indian.title": "الوجبات السريعة الهندية",
     "services.indian.description": "مطعم متخصص في الوجبات السريعة الهندية، يقدم وجبات لذيذة بتغليف مبتكر يسهل تناوله في أي مكان.",
     "services.burger.title": "برجر كونسبت",
-    "services.burger.description": "استمتع ببرجر كلاسيكي عالي الجودة يقدم بتغليف بسيط ويُطهى بشغف."
+    "services.burger.description": "استمتع ببرجر كلاسيكي عالي الجودة يقدم بتغليف بسيط ويُطهى بشغف.",
+    "nav.logo_customizer": "تخصيص الشعار",
   }
 };
