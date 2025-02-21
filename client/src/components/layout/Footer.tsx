@@ -41,6 +41,13 @@ export function Footer() {
               <li>
                 <Link href="/brands">
                   <a className="text-gray-300 hover:text-white transition-colors">
+                    Alshamal For Travel and Tourism
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/brands">
+                  <a className="text-gray-300 hover:text-white transition-colors">
                     MGSDR
                   </a>
                 </Link>

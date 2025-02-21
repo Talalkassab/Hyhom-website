@@ -19,7 +19,7 @@ export default function Brands() {
     {
       title: t('services.travel.title'),
       description: t('services.travel.description'),
-      image: '/travel.jpg'
+      image: '/Alshamal_logo_ver2_white.png'
     },
     {
       title: t('services.burger.title'),
