@@ -17,7 +17,6 @@ export function Header() {
     { href: '/about', label: t('nav.about') },
     { href: '/services', label: t('nav.services') },
     { href: '/contact', label: t('nav.contact') },
-    { href: '/logo-customizer', label: t('nav.logo_customizer') },
   ];
 
   const toggleLanguage = () => {
