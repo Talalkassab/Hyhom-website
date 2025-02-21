@@ -43,7 +43,7 @@ export default function Brands() {
                   <img 
                     src={brand.image} 
                     alt={brand.title}
-                    className="w-full h-full object-contain p-4"
+                    className="w-full h-full object-contain p-2 max-h-[300px]"
                   />
                 ) : (
                   <div className="w-full h-full bg-[#2a577e]/10 flex items-center justify-center">
