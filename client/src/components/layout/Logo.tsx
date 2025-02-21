@@ -17,26 +17,18 @@ export function Logo({ className = "" }: LogoProps) {
         xmlns="http://www.w3.org/2000/svg"
         className="h-12 w-auto"
       >
-        {/* Arabic Calligraphy - More accurate representation */}
+        {/* Main curved line */}
         <path
-          d="M35 40c10-15 20-10 30-5s25 5 35 0s20-10 30-5 25 10 35 0"
+          d="M20 40C40 40 60 30 80 30S120 40 140 40s40-10 60-10"
           stroke="#2a577e"
-          strokeWidth="6"
+          strokeWidth="8"
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="none"
         />
-        <path
-          d="M150 25c0 0 5 5 10 0s5-10 0-15"
-          stroke="#2a577e"
-          strokeWidth="6"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          fill="none"
-        />
-        {/* Dots */}
-        <circle cx="160" cy="12" r="3" fill="#6fbeb8" />
-        <circle cx="50" cy="28" r="3" fill="#6fbeb8" />
+
+        {/* Turquoise dot */}
+        <circle cx="170" cy="20" r="4" fill="#6fbeb8" />
 
         {/* HYHOM LTD. text */}
         <text
