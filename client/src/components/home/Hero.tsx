@@ -18,7 +18,7 @@ export function Hero() {
             className="bg-[#6fbeb8] hover:bg-[#5ca8a2] text-white"
             size="lg"
           >
-            {t('nav.services')}
+            {t('nav.brands')}
           </Button>
         </div>
       </div>

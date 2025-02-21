@@ -22,24 +22,24 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-xl font-bold mb-4">{t('nav.services')}</h3>
+            <h3 className="text-xl font-bold mb-4">{t('nav.brands')}</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/services">
+                <Link href="/brands">
                   <a className="text-gray-300 hover:text-white transition-colors">
                     Rice Roll
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href="/services">
+                <Link href="/brands">
                   <a className="text-gray-300 hover:text-white transition-colors">
                     Indian Fast Food
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href="/services">
+                <Link href="/brands">
                   <a className="text-gray-300 hover:text-white transition-colors">
                     Travel & Tourism
                   </a>

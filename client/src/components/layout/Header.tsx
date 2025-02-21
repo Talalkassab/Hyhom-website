@@ -15,7 +15,7 @@ export function Header() {
   const navigationItems = [
     { href: '/', label: t('nav.home') },
     { href: '/about', label: t('nav.about') },
-    { href: '/services', label: t('nav.services') },
+    { href: '/brands', label: t('nav.brands') },
     { href: '/contact', label: t('nav.contact') },
   ];
 
@@ -28,7 +28,7 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link href="/">
-            <a className="py-2"><Logo /></a>
+            <a><Logo /></a>
           </Link>
 
           {/* Desktop Navigation */}
