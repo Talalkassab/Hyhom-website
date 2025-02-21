@@ -41,7 +41,7 @@ export function Footer() {
               <li>
                 <Link href="/brands">
                   <a className="text-gray-300 hover:text-white transition-colors">
-                    Travel & Tourism
+                    MGSDR
                   </a>
                 </Link>
               </li>

@@ -17,7 +17,7 @@ export const translations = {
     "services.sushi.description": "Established in April 2021, Rice Roll is the first sushi-specialized restaurant in Tabuk, Saudi Arabia. A Japanese fast-food style restaurant highly rated by our customers.",
     "services.indian.title": "Naandori",
     "services.indian.description": "A restaurant specialized in Indian fast food, serving delicious meals in creative packaging that is easy to enjoy anywhere.",
-    "services.burger.title": "Burger Concept",
+    "services.burger.title": "MGSDR",
     "services.burger.description": "Enjoy classic, high-quality beef burgers, provided in simple packaging and cooked with love."
   },
   ar: {
@@ -38,7 +38,7 @@ export const translations = {
     "services.sushi.description": "تأسس في أبريل 2021، رايس رول هو أول مطعم متخصص بالسوشي في تبوك بالمملكة العربية السعودية. مطعم ذو طابع الوجبات السريعة اليابانية وحظي بتقييمات عالية من عملائنا.",
     "services.indian.title": "ناندوري",
     "services.indian.description": "مطعم متخصص في الوجبات السريعة الهندية، يقدم وجبات لذيذة بتغليف مبتكر يسهل تناوله في أي مكان.",
-    "services.burger.title": "برجر كونسبت",
+    "services.burger.title": "مقصدر",
     "services.burger.description": "استمتع ببرجر كلاسيكي عالي الجودة يقدم بتغليف بسيط ويُطهى بشغف."
   }
 };
