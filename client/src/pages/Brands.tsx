@@ -9,7 +9,7 @@ export default function Brands() {
     {
       title: t('services.sushi.title'),
       description: t('services.sushi.description'),
-      image: '/rice-roll.jpg'
+      image: '/Rice Roll Logo-04.jpg'
     },
     {
       title: t('services.indian.title'),
@@ -34,14 +34,22 @@ export default function Brands() {
         <h1 className="text-4xl font-bold text-[#2a577e] mb-12 text-center">
           {t('nav.brands')}
         </h1>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {brands.map((brand, index) => (
             <Card key={index} className="overflow-hidden">
               <AspectRatio ratio={16/9}>
-                <div className="w-full h-full bg-[#2a577e]/10 flex items-center justify-center">
-                  <p className="text-[#2a577e]">Brand Image</p>
-                </div>
+                {index === 0 ? (
+                  <img 
+                    src={brand.image} 
+                    alt={brand.title}
+                    className="w-full h-full object-contain p-4"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-[#2a577e]/10 flex items-center justify-center">
+                    <p className="text-[#2a577e]">Brand Image</p>
+                  </div>
+                )}
               </AspectRatio>
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold text-[#2a577e] mb-2">
