@@ -34,7 +34,7 @@ export function Footer() {
               <li>
                 <Link href="/brands">
                   <a className="text-gray-300 hover:text-white transition-colors">
-                    Indian Fast Food
+                    Naandori
                   </a>
                 </Link>
               </li>

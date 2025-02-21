@@ -14,7 +14,7 @@ export default function Brands() {
     {
       title: t('services.indian.title'),
       description: t('services.indian.description'),
-      image: '/indian-food.jpg'
+      image: '/Untitled-37.png'
     },
     {
       title: t('services.travel.title'),
@@ -39,7 +39,7 @@ export default function Brands() {
           {brands.map((brand, index) => (
             <Card key={index} className="overflow-hidden">
               <AspectRatio ratio={16/9}>
-                {index === 0 ? (
+                {brand.image ? (
                   <img 
                     src={brand.image} 
                     alt={brand.title}

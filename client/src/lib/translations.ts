@@ -15,7 +15,7 @@ export const translations = {
     "services.travel.description": "Originally known as Kassab Travel and Tourism, established in 1991, making it one of the oldest agencies in the region. We offer comprehensive travel solutions to serve diverse customer needs.",
     "services.sushi.title": "Rice Roll",
     "services.sushi.description": "Established in April 2021, Rice Roll is the first sushi-specialized restaurant in Tabuk, Saudi Arabia. A Japanese fast-food style restaurant highly rated by our customers.",
-    "services.indian.title": "Indian Fast Food",
+    "services.indian.title": "Naandori",
     "services.indian.description": "A restaurant specialized in Indian fast food, serving delicious meals in creative packaging that is easy to enjoy anywhere.",
     "services.burger.title": "Burger Concept",
     "services.burger.description": "Enjoy classic, high-quality beef burgers, provided in simple packaging and cooked with love."
@@ -36,7 +36,7 @@ export const translations = {
     "services.travel.description": "كانت تُعرف سابقًا باسم كَسّاب للسفر والسياحة منذ عام 1991، مما يجعلها واحدة من أقدم الوكالات في المنطقة. نقدم حلول سفر شاملة لتلبية احتياجات العملاء المتنوعة.",
     "services.sushi.title": "رايس رول",
     "services.sushi.description": "تأسس في أبريل 2021، رايس رول هو أول مطعم متخصص بالسوشي في تبوك بالمملكة العربية السعودية. مطعم ذو طابع الوجبات السريعة اليابانية وحظي بتقييمات عالية من عملائنا.",
-    "services.indian.title": "الوجبات السريعة الهندية",
+    "services.indian.title": "ناندوري",
     "services.indian.description": "مطعم متخصص في الوجبات السريعة الهندية، يقدم وجبات لذيذة بتغليف مبتكر يسهل تناوله في أي مكان.",
     "services.burger.title": "برجر كونسبت",
     "services.burger.description": "استمتع ببرجر كلاسيكي عالي الجودة يقدم بتغليف بسيط ويُطهى بشغف."
