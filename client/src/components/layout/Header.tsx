@@ -7,10 +7,11 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { Logo } from './Logo';
 
 export function Header() {
   const { t, language, setLanguage } = useLanguage();
-  
+
   const navigationItems = [
     { href: '/', label: t('nav.home') },
     { href: '/about', label: t('nav.about') },
@@ -27,7 +28,7 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link href="/">
-            <a className="text-2xl font-bold text-[#2a577e]">Hyhom</a>
+            <a><Logo /></a>
           </Link>
 
           {/* Desktop Navigation */}
@@ -57,6 +58,9 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent>
+              <div className="pt-4">
+                <Logo />
+              </div>
               <nav className="flex flex-col space-y-4 mt-6">
                 {navigationItems.map((item) => (
                   <Link key={item.href} href={item.href}>
