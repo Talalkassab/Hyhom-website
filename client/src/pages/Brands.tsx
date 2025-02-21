@@ -24,7 +24,7 @@ export default function Brands() {
     {
       title: t('services.burger.title'),
       description: t('services.burger.description'),
-      image: '/MGSDR-logo.png'
+      image: '/MGSDR Full png.png'
     }
   ];
 
