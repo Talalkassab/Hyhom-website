@@ -17,9 +17,9 @@ export function Logo({ className = "" }: LogoProps) {
         xmlns="http://www.w3.org/2000/svg"
         className="h-12 w-auto"
       >
-        {/* Arabic Calligraphy */}
+        {/* Arabic Calligraphy - More accurate representation */}
         <path
-          d="M30 35c0 0 15-5 25-5s20 5 30 5s25-5 35-5s20 5 30 5c10 0 20-5 30-5"
+          d="M35 40c10-15 20-10 30-5s25 5 35 0s20-10 30-5 25 10 35 0"
           stroke="#2a577e"
           strokeWidth="6"
           strokeLinecap="round"
@@ -27,7 +27,7 @@ export function Logo({ className = "" }: LogoProps) {
           fill="none"
         />
         <path
-          d="M140 30c0 0 5-10 10-10s10 10 10 10"
+          d="M150 25c0 0 5 5 10 0s5-10 0-15"
           stroke="#2a577e"
           strokeWidth="6"
           strokeLinecap="round"
@@ -35,8 +35,8 @@ export function Logo({ className = "" }: LogoProps) {
           fill="none"
         />
         {/* Dots */}
-        <circle cx="155" cy="15" r="3" fill="#6fbeb8" />
-        <circle cx="45" cy="25" r="3" fill="#6fbeb8" />
+        <circle cx="160" cy="12" r="3" fill="#6fbeb8" />
+        <circle cx="50" cy="28" r="3" fill="#6fbeb8" />
 
         {/* HYHOM LTD. text */}
         <text
