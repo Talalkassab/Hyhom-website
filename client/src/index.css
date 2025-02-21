@@ -40,7 +40,7 @@
     background-color: #ffffff;
     background-image: url("/pattern.png");
     background-size: 50px;
-    background-repeat: repeat;
+    background-repeat: space;
     background-position: center;
     position: relative;
   }
