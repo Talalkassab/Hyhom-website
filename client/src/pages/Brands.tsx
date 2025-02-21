@@ -14,7 +14,7 @@ export default function Brands() {
     {
       title: t('services.indian.title'),
       description: t('services.indian.description'),
-      image: '/Untitled-37.png'
+      image: '/naandori-logo.png'
     },
     {
       title: t('services.travel.title'),
