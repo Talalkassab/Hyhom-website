@@ -15,7 +15,7 @@ import Profile from "@/pages/Profile";
 import Dashboard from "@/pages/Dashboard";
 import NotFound from "@/pages/not-found";
 
-function PrivateRoute({ component: Component, layout: RouteLayout = DashboardLayout }) {
+function PrivateRoute({ component: Component }) {
   const { user, loading } = useAuth();
   const [, setLocation] = useLocation();
 
@@ -30,11 +30,7 @@ function PrivateRoute({ component: Component, layout: RouteLayout = DashboardLay
     return <div>Loading...</div>;
   }
 
-  return user ? (
-    <RouteLayout>
-      <Component />
-    </RouteLayout>
-  ) : null;
+  return user ? <Component /> : null;
 }
 
 function PublicRoute({ component: Component }) {
@@ -42,6 +38,18 @@ function PublicRoute({ component: Component }) {
     <Layout>
       <Component />
     </Layout>
+  );
+}
+
+function DashboardRoute({ component: Component }) {
+  return (
+    <PrivateRoute
+      component={() => (
+        <DashboardLayout>
+          <Component />
+        </DashboardLayout>
+      )}
+    />
   );
 }
 
@@ -65,26 +73,42 @@ function Router() {
         <PublicRoute component={Login} />
       </Route>
 
-      {/* Dashboard Routes - All under DashboardLayout */}
+      {/* Dashboard Routes */}
       <Route path="/dashboard">
-        <PrivateRoute component={Dashboard} />
+        <DashboardRoute component={Dashboard} />
       </Route>
       <Route path="/dashboard/employees">
-        <PrivateRoute component={() => <div className="p-6"><h1 className="text-2xl font-bold">Employees</h1></div>} />
+        <DashboardRoute component={() => (
+          <div className="p-6">
+            <h1 className="text-2xl font-bold">Employees</h1>
+          </div>
+        )} />
       </Route>
       <Route path="/dashboard/departments">
-        <PrivateRoute component={() => <div className="p-6"><h1 className="text-2xl font-bold">Departments</h1></div>} />
+        <DashboardRoute component={() => (
+          <div className="p-6">
+            <h1 className="text-2xl font-bold">Departments</h1>
+          </div>
+        )} />
       </Route>
       <Route path="/dashboard/performance">
-        <PrivateRoute component={() => <div className="p-6"><h1 className="text-2xl font-bold">Performance</h1></div>} />
+        <DashboardRoute component={() => (
+          <div className="p-6">
+            <h1 className="text-2xl font-bold">Performance</h1>
+          </div>
+        )} />
       </Route>
       <Route path="/dashboard/benefits">
-        <PrivateRoute component={() => <div className="p-6"><h1 className="text-2xl font-bold">Benefits</h1></div>} />
+        <DashboardRoute component={() => (
+          <div className="p-6">
+            <h1 className="text-2xl font-bold">Benefits</h1>
+          </div>
+        )} />
       </Route>
 
       {/* Profile Route - Uses regular Layout */}
       <Route path="/profile/:id">
-        <PrivateRoute component={Profile} layout={Layout} />
+        <PrivateRoute component={Profile} />
       </Route>
 
       {/* 404 Route */}
