@@ -29,15 +29,18 @@ interface SidebarItemProps {
 function SidebarItem({ icon, label, href, active }: SidebarItemProps) {
   return (
     <Link href={href}>
-      <a className={cn(
-        "flex items-center gap-3 px-3 py-2 rounded-lg transition-colors",
-        "hover:bg-accent/50",
-        active ? "bg-accent text-accent-foreground" : "text-muted-foreground"
-      )}>
+      <Button
+        variant="ghost"
+        className={cn(
+          "w-full justify-start gap-3",
+          "hover:bg-accent/50",
+          active ? "bg-accent text-accent-foreground" : "text-muted-foreground"
+        )}
+      >
         {icon}
         <span>{label}</span>
         {active && <ChevronRight className="ml-auto h-4 w-4" />}
-      </a>
+      </Button>
     </Link>
   );
 }
