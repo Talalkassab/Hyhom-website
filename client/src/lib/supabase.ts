@@ -7,21 +7,33 @@ if (!supabaseUrl || !supabaseAnonKey) {
   throw new Error('Missing Supabase environment variables');
 }
 
-// Initialize Supabase client with additional options for better error handling
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: {
     autoRefreshToken: true,
     persistSession: true,
-    detectSessionInUrl: false 
+    detectSessionInUrl: false,
   }
 });
 
-// Helper function to create admin user with auto-confirmation
-export async function createAdminUser(email: string, password: string) {
-  try {
-    console.log('Attempting to create/verify admin user:', email);
+let initializationInProgress = false;
+let retryCount = 0;
+const MAX_RETRIES = 3;
+const RETRY_DELAY = 2000; // 2 seconds
 
-    // First try to sign in
+async function delay(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+export async function createAdminUser(email: string, password: string) {
+  if (initializationInProgress) {
+    console.log('Admin user initialization already in progress');
+    return null;
+  }
+
+  try {
+    initializationInProgress = true;
+
+    // First, check if we can sign in
     const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
       email,
       password
@@ -32,62 +44,63 @@ export async function createAdminUser(email: string, password: string) {
       return signInData;
     }
 
-    console.log('Sign in failed, attempting to create new user');
+    // Wait before trying to create a new user to avoid rate limits
+    await delay(RETRY_DELAY);
 
-    // Create new user
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
       options: {
-        data: { role: 'admin' }
+        data: { role: 'admin' },
       }
     });
 
     if (error) {
       if (error.message?.includes('User already registered')) {
-        console.log('User exists but sign in failed, might need email confirmation');
+        // User exists but couldn't sign in - might need confirmation
+        console.log('User exists but needs confirmation');
         return null;
       }
       throw error;
     }
 
-    if (!data.user) {
-      throw new Error('No user data returned from signup');
-    }
+    console.log('Admin user created successfully');
+    return data;
 
-    console.log('Admin user created, attempting immediate sign in');
-
-    // Try to sign in immediately after creation
-    const { data: newSignIn, error: newSignInError } = await supabase.auth.signInWithPassword({
-      email,
-      password
-    });
-
-    if (newSignInError) {
-      console.error('Failed to sign in after creation:', newSignInError);
-      return null;
-    }
-
-    return newSignIn;
   } catch (error: any) {
     console.error('Error in createAdminUser:', error);
+
+    if (error.message?.includes('over_email_send_rate_limit') && retryCount < MAX_RETRIES) {
+      retryCount++;
+      console.log(`Retrying after delay... Attempt ${retryCount} of ${MAX_RETRIES}`);
+      await delay(RETRY_DELAY * retryCount);
+      return createAdminUser(email, password);
+    }
+
     return null;
+  } finally {
+    initializationInProgress = false;
   }
 }
 
 // Function to initialize admin user
 export async function initializeAdminUser() {
   try {
-    const response = await createAdminUser('talal.kassab@alshamal.co', 'HyhomAdmin2024!');
-    if (response?.user) {
-      console.log('Admin user initialized and signed in successfully');
+    retryCount = 0; // Reset retry count
+    const result = await createAdminUser('talal.kassab@alshamal.co', 'HyhomAdmin2024!');
+    if (result?.user) {
+      console.log('Admin user setup complete');
     } else {
-      console.log('Admin user might need email confirmation');
+      console.log('Admin user initialization failed - may need email confirmation');
     }
-  } catch (error: any) {
+  } catch (error) {
     console.error('Failed to initialize admin user:', error);
   }
 }
 
-// Initialize admin user when the app starts
-initializeAdminUser();
+// Only initialize if we're not already logged in
+supabase.auth.getSession().then(({ data: { session } }) => {
+  if (!session?.user) {
+    initializeAdminUser();
+  }
+});
