@@ -7,12 +7,14 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/lib/AuthContext";
 import { type LoginCredentials, loginSchema } from "@shared/schema";
+import { useLanguage } from "@/lib/i18n";
 
 export default function Login() {
   const [, setLocation] = useLocation();
   const { signIn } = useAuth();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
+  const { t, language } = useLanguage();
 
   const form = useForm<LoginCredentials>({
     resolver: zodResolver(loginSchema),
@@ -30,8 +32,8 @@ export default function Login() {
     } catch (error) {
       toast({
         variant: "destructive",
-        title: "Error",
-        description: error instanceof Error ? error.message : "Failed to sign in",
+        title: language === 'ar' ? 'خطأ' : 'Error',
+        description: error instanceof Error ? error.message : language === 'ar' ? 'فشل تسجيل الدخول' : 'Failed to sign in',
       });
     } finally {
       setIsLoading(false);
@@ -42,9 +44,13 @@ export default function Login() {
     <div className="container flex h-screen w-screen flex-col items-center justify-center">
       <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
         <div className="flex flex-col space-y-2 text-center">
-          <h1 className="text-2xl font-semibold tracking-tight">Welcome back</h1>
+          <h1 className="text-2xl font-semibold tracking-tight">
+            {language === 'ar' ? 'مرحباً بعودتك' : 'Welcome back'}
+          </h1>
           <p className="text-sm text-muted-foreground">
-            Enter your email to sign in to your account
+            {language === 'ar' 
+              ? 'أدخل بريدك الإلكتروني لتسجيل الدخول إلى حسابك'
+              : 'Enter your email to sign in to your account'}
           </p>
         </div>
 
@@ -52,40 +58,44 @@ export default function Login() {
           <div className="space-y-2">
             <Input
               type="email"
-              placeholder="Email"
+              placeholder={language === 'ar' ? 'البريد الإلكتروني' : 'Email'}
               {...form.register("email")}
+              className={language === 'ar' ? 'text-right' : ''}
             />
             {form.formState.errors.email && (
-              <p className="text-sm text-destructive">
-                {form.formState.errors.email.message}
+              <p className="text-sm text-destructive" dir={language === 'ar' ? 'rtl' : 'ltr'}>
+                {language === 'ar' ? 'البريد الإلكتروني مطلوب' : form.formState.errors.email.message}
               </p>
             )}
           </div>
           <div className="space-y-2">
             <Input
               type="password"
-              placeholder="Password"
+              placeholder={language === 'ar' ? 'كلمة المرور' : 'Password'}
               {...form.register("password")}
+              className={language === 'ar' ? 'text-right' : ''}
             />
             {form.formState.errors.password && (
-              <p className="text-sm text-destructive">
-                {form.formState.errors.password.message}
+              <p className="text-sm text-destructive" dir={language === 'ar' ? 'rtl' : 'ltr'}>
+                {language === 'ar' ? 'كلمة المرور مطلوبة' : form.formState.errors.password.message}
               </p>
             )}
           </div>
           <Button className="w-full" type="submit" disabled={isLoading}>
-            {isLoading ? "Signing in..." : "Sign in"}
+            {isLoading 
+              ? (language === 'ar' ? 'جاري تسجيل الدخول...' : 'Signing in...') 
+              : (language === 'ar' ? 'تسجيل الدخول' : 'Sign in')}
           </Button>
         </form>
 
-        <div className="text-center text-sm">
-          Don't have an account?{" "}
+        <div className="text-center text-sm" dir={language === 'ar' ? 'rtl' : 'ltr'}>
+          {language === 'ar' ? 'ليس لديك حساب؟' : "Don't have an account?"}{" "}
           <Button
             variant="link"
             className="px-0"
             onClick={() => setLocation("/signup")}
           >
-            Sign up
+            {language === 'ar' ? 'إنشاء حساب' : 'Sign up'}
           </Button>
         </div>
       </div>
