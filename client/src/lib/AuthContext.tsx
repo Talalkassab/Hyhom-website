@@ -37,12 +37,22 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const signIn = async (credentials: LoginCredentials) => {
     try {
-      const { error } = await supabase.auth.signInWithPassword({
+      const { data, error } = await supabase.auth.signInWithPassword({
         email: credentials.email,
         password: credentials.password,
       });
-      if (error) throw error;
+
+      if (error) {
+        console.error('Supabase Auth Error:', error);
+        throw error;
+      }
+
+      if (!data.user) {
+        throw new Error('No user data returned from Supabase');
+      }
+
     } catch (error) {
+      console.error('Detailed Auth Error:', error);
       toast({
         variant: "destructive",
         title: "Login failed",
@@ -54,7 +64,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const signUp = async (credentials: SignupCredentials) => {
     try {
-      const { error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email: credentials.email,
         password: credentials.password,
         options: {
@@ -63,8 +73,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           },
         },
       });
-      if (error) throw error;
+
+      if (error) {
+        console.error('Supabase Signup Error:', error);
+        throw error;
+      }
+
+      if (!data.user) {
+        throw new Error('No user data returned from signup');
+      }
+
     } catch (error) {
+      console.error('Detailed Signup Error:', error);
       toast({
         variant: "destructive",
         title: "Registration failed",
@@ -77,8 +97,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const signOut = async () => {
     try {
       const { error } = await supabase.auth.signOut();
-      if (error) throw error;
+      if (error) {
+        console.error('Supabase Signout Error:', error);
+        throw error;
+      }
     } catch (error) {
+      console.error('Detailed Signout Error:', error);
       toast({
         variant: "destructive",
         title: "Sign out failed",
