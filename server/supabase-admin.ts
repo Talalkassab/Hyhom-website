@@ -30,17 +30,26 @@ export async function confirmEmailManually(email: string) {
       throw new Error('User not found');
     }
 
-    // Confirm the email
+    // Update user with confirmed email
     const { data, error } = await supabaseAdmin.auth.admin.updateUserById(
       user.id,
-      { email_confirmed_at: new Date().toISOString() }
+      { email_confirm: true }
     );
 
     if (error) {
       throw error;
     }
 
-    return { success: true, data };
+    // Double-check the user's status
+    const { data: verifyData, error: verifyError } = await supabaseAdmin.auth.admin.getUserById(user.id);
+
+    if (verifyError) {
+      throw verifyError;
+    }
+
+    console.log('User status after confirmation:', verifyData);
+
+    return { success: true, data: verifyData };
   } catch (error: any) {
     console.error('Error confirming email:', error);
     return { success: false, error: error.message };

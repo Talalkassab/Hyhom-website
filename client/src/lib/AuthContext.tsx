@@ -24,14 +24,24 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     let mounted = true;
 
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (mounted) {
-        setUser(session?.user ?? null);
-        setLoading(false);
+    async function getInitialSession() {
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (mounted) {
+          setUser(session?.user ?? null);
+          setLoading(false);
+        }
+      } catch (error) {
+        console.error('Error getting initial session:', error);
+        if (mounted) {
+          setLoading(false);
+        }
       }
-    });
+    }
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    getInitialSession();
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
       if (mounted) {
         setUser(session?.user ?? null);
         setLoading(false);
@@ -76,17 +86,22 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       return messages.rate_limit;
     }
 
+    console.error('Auth Error Details:', error);
     return messages.default;
   };
 
   const signIn = async (credentials: LoginCredentials) => {
     try {
+      // First, try to get a fresh session
+      await supabase.auth.refreshSession();
+
       const { data, error } = await supabase.auth.signInWithPassword({
         email: credentials.email,
         password: credentials.password,
       });
 
       if (error) {
+        console.error('Supabase Auth Error:', error);
         const { title, message } = getErrorMessage(error);
         toast({
           variant: "destructive",
@@ -100,7 +115,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         throw new Error('No user data returned');
       }
 
+      // Force refresh the session after successful login
+      const { data: refreshData, error: refreshError } = await supabase.auth.refreshSession();
+      if (refreshError) {
+        console.error('Session refresh error:', refreshError);
+      } else {
+        console.log('Session refreshed successfully:', refreshData);
+      }
+
     } catch (error: any) {
+      console.error('Detailed Auth Error:', error);
       const { title, message } = getErrorMessage(error);
       toast({
         variant: "destructive",
