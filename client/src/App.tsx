@@ -10,6 +10,7 @@ import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Brands from "@/pages/Brands";
 import Contact from "@/pages/Contact";
+import Profile from "@/pages/Profile";
 import NotFound from "@/pages/not-found";
 
 function PrivateRoute(props: { component: React.ComponentType }) {
@@ -37,6 +38,7 @@ function Router() {
       <Route path="/brands" component={Brands} />
       <Route path="/contact" component={Contact} />
       <Route path="/login" component={Login} />
+      <PrivateRoute path="/profile/:id" component={Profile} />
       <Route component={NotFound} />
     </Switch>
   );

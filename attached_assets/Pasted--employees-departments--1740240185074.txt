@@ -1,0 +1,73 @@
+┌───────────────┐         ┌─────────────────┐
+│   employees    │         │   departments   │
+├───────────────┤         ├─────────────────┤
+│ id (PK)        │   +--->│ id (PK)         │
+│ first_name     │   |    │ name            │
+│ last_name      │   |    │ description     │
+│ dob            │   |    └─────────────────┘
+│ email          │   |      
+│ phone          │   |    ┌─────────────────┐
+│ address        │   |    │   positions     │
+│ manager_id (FK)│   +--->│ id (PK)         │
+│ ...            │        │ name            │
+└───────────────┘        │ department_id(FK)│
+                          └─────────────────┘
+                                 ^
+                                 |
+                     ┌──────────────────────────┐
+                     │    employee_positions    │
+                     ├──────────────────────────┤
+                     │ employee_id (FK)         │
+                     │ position_id (FK)         │
+                     │ start_date               │
+                     │ end_date (nullable)      │
+                     └──────────────────────────┘
+                             
+                    ┌──────────────────────────┐
+                    │    compensation          │
+                    ├──────────────────────────┤
+                    │ id (PK)                  │
+                    │ employee_id (FK)         │
+                    │ base_salary              │
+                    │ currency                 │
+                    │ effective_date           │
+                    └──────────────────────────┘
+
+                    ┌──────────────────────────┐
+                    │   emergency_contacts     │
+                    ├──────────────────────────┤
+                    │ id (PK)                  │
+                    │ employee_id (FK)         │
+                    │ contact_name             │
+                    │ relationship             │
+                    │ phone                    │
+                    │ address                  │
+                    └──────────────────────────┘
+
+                    ┌──────────────────────────┐
+                    │   performance_reviews    │
+                    ├──────────────────────────┤
+                    │ id (PK)                  │
+                    │ employee_id (FK)         │
+                    │ review_date              │
+                    │ rating                   │
+                    │ comments                 │
+                    │ manager_id (FK)          │
+                    └──────────────────────────┘
+
+                    ┌──────────────────────────┐
+                    │   benefits              │
+                    ├──────────────────────────┤
+                    │ id (PK)                  │
+                    │ name                     │
+                    │ description              │
+                    └──────────────────────────┘
+
+                    ┌──────────────────────────┐
+                    │  employee_benefits       │
+                    ├──────────────────────────┤
+                    │ id (PK)                  │
+                    │ employee_id (FK)         │
+                    │ benefit_id (FK)          │
+                    │ enrollment_date          │
+                    └──────────────────────────┘
