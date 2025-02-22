@@ -26,6 +26,7 @@ export function Header() {
   };
 
   const loginText = language === 'ar' ? 'تسجيل دخول' : 'Login';
+  const profilePath = user ? `/profile/${user.id}` : '/login';
 
   return (
     <header className="fixed w-full bg-white/80 backdrop-blur-sm z-50 border-b">
@@ -57,23 +58,22 @@ export function Header() {
               <Globe className="h-5 w-5" />
             </Button>
 
-            {/* Auth Buttons */}
-            {user ? (
-              <div className="flex items-center space-x-2">
-                <Link href={`/profile/${user.id}`}>
-                  <Button variant="ghost" size="icon" className="text-gray-600">
-                    <User className="h-5 w-5" />
-                  </Button>
-                </Link>
-              </div>
-            ) : (
-              <Link href="/login">
-                <Button variant="outline">
-                  <LogIn className="h-5 w-5 mr-2" />
-                  {loginText}
-                </Button>
-              </Link>
-            )}
+            {/* Auth Button */}
+            <Link href={profilePath}>
+              <Button variant="outline">
+                {user ? (
+                  <>
+                    <User className="h-5 w-5 mr-2" />
+                    {t('nav.profile')}
+                  </>
+                ) : (
+                  <>
+                    <LogIn className="h-5 w-5 mr-2" />
+                    {loginText}
+                  </>
+                )}
+              </Button>
+            </Link>
           </nav>
 
           {/* Mobile Navigation */}
@@ -98,28 +98,28 @@ export function Header() {
                   </Link>
                 ))}
 
-                {user ? (
-                  <>
-                    <Link href={`/profile/${user.id}`}>
-                      <Button variant="ghost" className="w-full justify-start">
+                {/* Auth Link */}
+                <Link href={profilePath}>
+                  <Button variant="outline" className="w-full">
+                    {user ? (
+                      <>
                         <User className="h-5 w-5 mr-2" />
                         {t('nav.profile')}
-                      </Button>
-                    </Link>
-                  </>
-                ) : (
-                  <Link href="/login">
-                    <Button variant="outline" className="w-full">
-                      <LogIn className="h-5 w-5 mr-2" />
-                      {loginText}
-                    </Button>
-                  </Link>
-                )}
+                      </>
+                    ) : (
+                      <>
+                        <LogIn className="h-5 w-5 mr-2" />
+                        {loginText}
+                      </>
+                    )}
+                  </Button>
+                </Link>
 
+                {/* Language Toggle */}
                 <Button
                   variant="outline"
                   onClick={toggleLanguage}
-                  className="w-full mt-4"
+                  className="w-full"
                 >
                   {language === 'en' ? 'العربية' : 'English'}
                 </Button>
