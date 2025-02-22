@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { User } from '@supabase/supabase-js';
 import { supabase } from './supabase';
-import type { LoginCredentials, SignupCredentials } from '@shared/schema';
+import { LoginCredentials, SignupCredentials } from '@shared/schema';
 
 interface AuthContextType {
   user: User | null;
