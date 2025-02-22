@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { Link, useLocation } from 'wouter';
+import { useLocation } from 'wouter';
 import { useAuth } from '@/lib/AuthContext';
 import { useLanguage } from '@/lib/i18n';
 import {
@@ -22,44 +22,36 @@ interface DashboardLayoutProps {
 interface SidebarItemProps {
   icon: ReactNode;
   label: string;
-  href: string;
+  href?: string;
   active?: boolean;
   onClick?: () => void;
 }
 
 function SidebarItem({ icon, label, href, active, onClick }: SidebarItemProps) {
-  if (onClick) {
-    return (
-      <Button
-        variant="ghost"
-        className={cn(
-          "w-full justify-start gap-3",
-          "hover:bg-accent/50",
-          active ? "bg-accent text-accent-foreground" : "text-muted-foreground"
-        )}
-        onClick={onClick}
-      >
-        {icon}
-        <span>{label}</span>
-      </Button>
-    );
-  }
+  const [, setLocation] = useLocation();
+
+  const handleClick = () => {
+    if (href) {
+      setLocation(href);
+    } else if (onClick) {
+      onClick();
+    }
+  };
 
   return (
-    <Link href={href}>
-      <Button
-        variant="ghost"
-        className={cn(
-          "w-full justify-start gap-3",
-          "hover:bg-accent/50",
-          active ? "bg-accent text-accent-foreground" : "text-muted-foreground"
-        )}
-      >
-        {icon}
-        <span>{label}</span>
-        {active && <ChevronRight className="ml-auto h-4 w-4" />}
-      </Button>
-    </Link>
+    <Button
+      variant="ghost"
+      className={cn(
+        "w-full justify-start gap-3",
+        "hover:bg-accent/50",
+        active ? "bg-accent text-accent-foreground" : "text-muted-foreground"
+      )}
+      onClick={handleClick}
+    >
+      {icon}
+      <span>{label}</span>
+      {active && <ChevronRight className="ml-auto h-4 w-4" />}
+    </Button>
   );
 }
 
@@ -119,7 +111,6 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
             <SidebarItem
               icon={<LogOut className="h-4 w-4" />}
               label={t('auth.signOut')}
-              href="#"
               onClick={() => signOut()}
             />
           </div>
