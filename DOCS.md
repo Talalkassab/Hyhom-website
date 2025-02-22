@@ -34,45 +34,80 @@ The login page automatically adapts to the selected language:
 - Automatically persists language preference
 - Affects the entire application including the login page
 
-### User Management
-#### Administrator Guide
-1. User Creation Process
-   - Only system administrators can create new user accounts
-   - Use the Supabase dashboard to manage users
-   - Required information:
-     - Email address
-     - Password
-     - User role/permissions
+## Employee Profile System
 
-2. Access Management
-   - Manage user permissions through Supabase
-   - Monitor user activity
-   - Handle password resets
+### Database Structure
+The system uses a comprehensive database structure including:
+- Employees (core information)
+- Departments
+- Positions
+- Compensation
+- Emergency Contacts
+- Performance Reviews
+- Benefits
+
+### Employee Profile Features
+1. Basic Information
+   - Full name
+   - Contact details (email, phone)
+   - Address
+   - Department and position
+
+2. Professional Details
+   - Current position
+   - Department affiliation
+   - Manager information
+   - Employment history
+
+3. Compensation
+   - Base salary
+   - Currency
+   - Effective date
+
+4. Benefits
+   - Enrolled benefits
+   - Enrollment dates
+   - Benefit descriptions
+
+5. Performance
+   - Review history
+   - Ratings
+   - Comments
+   - Review dates
+
+### Admin Capabilities
+1. User Management
+   - Create and manage employee profiles
+   - Assign roles and permissions
+   - Update employee information
+
+2. Department Management
+   - Create and manage departments
+   - Assign employees to departments
+   - Track departmental hierarchy
+
+3. Position Management
+   - Create and manage positions
+   - Assign positions to employees
+   - Track position history
 
 ### Security Considerations
-- Authentication handled securely through Supabase
-- Environment variables for API keys
-- Session management for logged-in users
-- Protected routes for authenticated content
+- Supabase Authentication for secure login
+- Role-based access control
+- Data encryption for sensitive information
+- Audit logging for profile changes
 
 ### Technical Implementation
-The login system uses:
+The system uses:
 - React with TypeScript
 - Supabase Authentication
-- Tailwind CSS for styling
+- PostgreSQL Database
+- Drizzle ORM
+- TanStack Query for data fetching
 - Shadcn UI components
-- React Hook Form for form management
-- Zod for form validation
-
-### Error Handling
-The system provides user-friendly error messages in both languages for:
-- Invalid credentials
-- Network issues
-- Missing required fields
-- Server errors
 
 ### Future Considerations
-- Add more languages if needed
-- Implement password recovery system
-- Add two-factor authentication
-- Enhanced session management
+- Enhanced reporting capabilities
+- Advanced search and filtering
+- Document management integration
+- Time tracking features
