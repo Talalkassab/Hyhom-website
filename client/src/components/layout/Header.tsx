@@ -1,7 +1,7 @@
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/lib/i18n';
-import { MenuIcon, Globe, LogIn, User } from 'lucide-react';
+import { MenuIcon, Globe, LogIn, User, LogOut } from 'lucide-react';
 import {
   Sheet,
   SheetContent,
@@ -12,7 +12,7 @@ import { useAuth } from '@/lib/AuthContext';
 
 export function Header() {
   const { t, language, setLanguage } = useLanguage();
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
 
   const navigationItems = [
     { href: '/', label: t('nav.home') },
@@ -25,7 +25,17 @@ export function Header() {
     setLanguage(language === 'en' ? 'ar' : 'en');
   };
 
+  const handleLogout = async () => {
+    try {
+      await signOut();
+    } catch (error) {
+      console.error('Failed to logout:', error);
+    }
+  };
+
   const loginText = language === 'ar' ? 'تسجيل دخول' : 'Login';
+  const profileText = language === 'ar' ? 'الملف الشخصي' : 'Profile';
+  const logoutText = language === 'ar' ? 'تسجيل خروج' : 'Logout';
   const profilePath = user ? `/profile/${user.id}` : '/login';
 
   return (
@@ -58,22 +68,28 @@ export function Header() {
               <Globe className="h-5 w-5" />
             </Button>
 
-            {/* Auth Button */}
-            <Link href={profilePath}>
-              <Button variant="outline">
-                {user ? (
-                  <>
+            {/* Auth Buttons */}
+            {user ? (
+              <div className="flex items-center gap-2">
+                <Link href={profilePath}>
+                  <Button variant="outline">
                     <User className="h-5 w-5 mr-2" />
-                    {t('nav.profile')}
-                  </>
-                ) : (
-                  <>
-                    <LogIn className="h-5 w-5 mr-2" />
-                    {loginText}
-                  </>
-                )}
-              </Button>
-            </Link>
+                    {profileText}
+                  </Button>
+                </Link>
+                <Button variant="ghost" onClick={handleLogout}>
+                  <LogOut className="h-5 w-5 mr-2" />
+                  {logoutText}
+                </Button>
+              </div>
+            ) : (
+              <Link href="/login">
+                <Button variant="outline">
+                  <LogIn className="h-5 w-5 mr-2" />
+                  {loginText}
+                </Button>
+              </Link>
+            )}
           </nav>
 
           {/* Mobile Navigation */}
@@ -98,22 +114,32 @@ export function Header() {
                   </Link>
                 ))}
 
-                {/* Auth Link */}
-                <Link href={profilePath}>
-                  <Button variant="outline" className="w-full">
-                    {user ? (
-                      <>
+                {/* Auth Links */}
+                {user ? (
+                  <>
+                    <Link href={profilePath}>
+                      <Button variant="outline" className="w-full">
                         <User className="h-5 w-5 mr-2" />
-                        {t('nav.profile')}
-                      </>
-                    ) : (
-                      <>
-                        <LogIn className="h-5 w-5 mr-2" />
-                        {loginText}
-                      </>
-                    )}
-                  </Button>
-                </Link>
+                        {profileText}
+                      </Button>
+                    </Link>
+                    <Button 
+                      variant="ghost" 
+                      onClick={handleLogout}
+                      className="w-full"
+                    >
+                      <LogOut className="h-5 w-5 mr-2" />
+                      {logoutText}
+                    </Button>
+                  </>
+                ) : (
+                  <Link href="/login">
+                    <Button variant="outline" className="w-full">
+                      <LogIn className="h-5 w-5 mr-2" />
+                      {loginText}
+                    </Button>
+                  </Link>
+                )}
 
                 {/* Language Toggle */}
                 <Button
