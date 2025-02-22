@@ -56,7 +56,7 @@ export function Header() {
               <Link href="/login">
                 <Button variant="outline" className="ml-4">
                   <LogIn className="h-5 w-5 mr-2" />
-                  {t('nav.login')}
+                  Login
                 </Button>
               </Link>
             )}
@@ -87,7 +87,7 @@ export function Header() {
                   <Link href="/login">
                     <Button variant="outline" className="w-full">
                       <LogIn className="h-5 w-5 mr-2" />
-                      {t('nav.login')}
+                      Login
                     </Button>
                   </Link>
                 )}
