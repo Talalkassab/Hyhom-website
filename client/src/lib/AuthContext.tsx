@@ -18,13 +18,15 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
+  const [retryAttempts, setRetryAttempts] = useState(0);
   const { toast } = useToast();
   const { language } = useLanguage();
+  const MAX_RETRY_ATTEMPTS = 3;
+  const RETRY_DELAY = 2000;
 
   useEffect(() => {
     let mounted = true;
 
-    // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (mounted) {
         setUser(session?.user ?? null);
@@ -32,7 +34,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       }
     });
 
-    // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       if (mounted) {
         setUser(session?.user ?? null);
@@ -46,8 +47,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     };
   }, []);
 
+  const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
   const getErrorMessage = (error: any) => {
     const isArabic = language === 'ar';
+
     const messages = {
       default: {
         title: isArabic ? 'خطأ' : 'Error',
@@ -57,10 +61,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         title: isArabic ? 'خطأ في تسجيل الدخول' : 'Login Error',
         message: isArabic ? 'البريد الإلكتروني أو كلمة المرور غير صحيحة' : 'Email or password is incorrect'
       },
-      email_not_confirmed: {
-        title: isArabic ? 'البريد الإلكتروني غير مؤكد' : 'Email Not Confirmed',
-        message: isArabic ? 'يرجى تأكيد عنوان بريدك الإلكتروني قبل تسجيل الدخول' : 'Please confirm your email before signing in'
-      },
       rate_limit: {
         title: isArabic ? 'محاولات كثيرة' : 'Too Many Attempts',
         message: isArabic ? 'يرجى الانتظار قليلاً قبل المحاولة مرة أخرى' : 'Please wait a moment before trying again'
@@ -69,38 +69,55 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     if (error.message?.includes('Invalid login credentials')) {
       return messages.invalid_credentials;
-    } else if (error.message?.includes('Email not confirmed')) {
-      return messages.email_not_confirmed;
-    } else if (error.message?.includes('over_email_send_rate_limit')) {
+    } else if (error.message?.includes('rate limit')) {
       return messages.rate_limit;
     }
 
     return messages.default;
   };
 
+  const handleAuthError = async (error: any, operation: () => Promise<any>) => {
+    const { title, message } = getErrorMessage(error);
+
+    if (error.message?.includes('rate limit') && retryAttempts < MAX_RETRY_ATTEMPTS) {
+      setRetryAttempts(prev => prev + 1);
+      await sleep(RETRY_DELAY * (retryAttempts + 1));
+      return operation();
+    }
+
+    toast({
+      variant: "destructive",
+      title,
+      description: message,
+    });
+
+    throw error;
+  };
+
   const signIn = async (credentials: LoginCredentials) => {
     try {
+      setRetryAttempts(0);
       const { data, error } = await supabase.auth.signInWithPassword({
         email: credentials.email,
         password: credentials.password,
       });
 
-      if (error) throw error;
-      if (!data.user) throw new Error('No user data returned');
+      if (error) {
+        return handleAuthError(error, () => signIn(credentials));
+      }
+
+      if (!data.user) {
+        throw new Error('No user data returned');
+      }
 
     } catch (error: any) {
-      const { title, message } = getErrorMessage(error);
-      toast({
-        variant: "destructive",
-        title,
-        description: message,
-      });
-      throw error;
+      await handleAuthError(error, () => signIn(credentials));
     }
   };
 
   const signUp = async (credentials: SignupCredentials) => {
     try {
+      setRetryAttempts(0);
       const { data, error } = await supabase.auth.signUp({
         email: credentials.email,
         password: credentials.password,
@@ -111,17 +128,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         },
       });
 
-      if (error) throw error;
-      if (!data.user) throw new Error('No user data returned');
+      if (error) {
+        return handleAuthError(error, () => signUp(credentials));
+      }
+
+      if (!data.user) {
+        throw new Error('No user data returned');
+      }
 
     } catch (error: any) {
-      const { title, message } = getErrorMessage(error);
-      toast({
-        variant: "destructive",
-        title,
-        description: message,
-      });
-      throw error;
+      await handleAuthError(error, () => signUp(credentials));
     }
   };
 
