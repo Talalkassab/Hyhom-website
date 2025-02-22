@@ -15,7 +15,7 @@ import Profile from "@/pages/Profile";
 import Dashboard from "@/pages/Dashboard";
 import NotFound from "@/pages/not-found";
 
-function PrivateRoute({ component: Component, layout: Layout = DashboardLayout }) {
+function PrivateRoute({ component: Component, layout: RouteLayout = DashboardLayout }) {
   const { user, loading } = useAuth();
   const [, setLocation] = useLocation();
 
@@ -30,20 +30,41 @@ function PrivateRoute({ component: Component, layout: Layout = DashboardLayout }
   }
 
   return user ? (
+    <RouteLayout>
+      <Component />
+    </RouteLayout>
+  ) : null;
+}
+
+function PublicRoute({ component: Component }) {
+  return (
     <Layout>
       <Component />
     </Layout>
-  ) : null;
+  );
 }
 
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/brands" component={Brands} />
-      <Route path="/contact" component={Contact} />
-      <Route path="/login" component={Login} />
+      {/* Public Routes */}
+      <Route path="/">
+        <PublicRoute component={Home} />
+      </Route>
+      <Route path="/about">
+        <PublicRoute component={About} />
+      </Route>
+      <Route path="/brands">
+        <PublicRoute component={Brands} />
+      </Route>
+      <Route path="/contact">
+        <PublicRoute component={Contact} />
+      </Route>
+      <Route path="/login">
+        <PublicRoute component={Login} />
+      </Route>
+
+      {/* Private Routes */}
       <Route path="/dashboard">
         <PrivateRoute component={Dashboard} />
       </Route>
@@ -62,7 +83,11 @@ function Router() {
       <Route path="/profile/:id">
         <PrivateRoute component={Profile} layout={Layout} />
       </Route>
-      <Route component={NotFound} />
+
+      {/* 404 Route */}
+      <Route>
+        <PublicRoute component={NotFound} />
+      </Route>
     </Switch>
   );
 }
@@ -71,9 +96,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <Layout>
-          <Router />
-        </Layout>
+        <Router />
         <Toaster />
       </AuthProvider>
     </QueryClientProvider>
