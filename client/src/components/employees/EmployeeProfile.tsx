@@ -11,6 +11,7 @@ import {
   Heart
 } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useAuth } from "@/lib/AuthContext";
 
 interface Employee {
   id: number;
@@ -40,9 +41,20 @@ interface EmployeeProfileProps {
 }
 
 export function EmployeeProfile({ employeeId }: EmployeeProfileProps) {
+  const { user } = useAuth();
+
   const { data: profile, isLoading, error } = useQuery<Employee>({
     queryKey: [`/api/employees/${employeeId}`],
-    enabled: !isNaN(employeeId),
+    enabled: Boolean(employeeId) && Boolean(user),
+    // Assume the employee data is the same as the user data for now
+    initialData: user ? {
+      id: user.id,
+      firstName: user.firstName || '',
+      lastName: user.lastName || '',
+      email: user.email,
+      startDate: new Date().toISOString(), // Placeholder
+      status: 'Active',
+    } as Employee : undefined,
   });
 
   if (isLoading) {
@@ -121,6 +133,25 @@ export function EmployeeProfile({ employeeId }: EmployeeProfileProps) {
         </CardContent>
       </Card>
 
+      {/* Employment Status */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Employment Status</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid gap-4">
+            <div className="flex items-center gap-2">
+              <Calendar className="h-4 w-4" />
+              <span>Joined: {new Date(profile.startDate).toLocaleDateString()}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Star className="h-4 w-4" />
+              <span>Status: {profile.status}</span>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
       {/* Position & Department */}
       {profile.position && (
         <Card>
@@ -144,27 +175,8 @@ export function EmployeeProfile({ employeeId }: EmployeeProfileProps) {
         </Card>
       )}
 
-      {/* Employee Status */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Employment Status</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid gap-4">
-            <div className="flex items-center gap-2">
-              <Calendar className="h-4 w-4" />
-              <span>Joined: {new Date(profile.startDate).toLocaleDateString()}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Star className="h-4 w-4" />
-              <span>Status: {profile.status}</span>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
       {/* Benefits */}
-      {profile.benefits?.length > 0 && (
+      {profile.benefits && profile.benefits.length > 0 && (
         <Card>
           <CardHeader>
             <CardTitle>Benefits</CardTitle>
