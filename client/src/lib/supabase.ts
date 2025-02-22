@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 
+// In the browser, we only use the VITE_ prefixed environment variables
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
@@ -14,7 +15,6 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
     detectSessionInUrl: false,
   }
 });
-
 
 export async function ensureAdminUser(email: string, password: string) {
   try {
@@ -33,7 +33,8 @@ export async function ensureAdminUser(email: string, password: string) {
       email,
       password,
       options: {
-        data: { role: 'admin' }
+        data: { role: 'admin' },
+        emailRedirectTo: `${window.location.origin}/auth/callback`
       }
     });
 
