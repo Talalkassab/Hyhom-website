@@ -87,9 +87,9 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
   };
 
   return (
-    <div className="flex h-screen bg-background">
+    <div className="flex min-h-screen bg-background">
       {/* Sidebar */}
-      <aside className="w-64 border-r bg-card">
+      <aside className="fixed top-0 left-0 h-screen w-64 border-r bg-card">
         <div className="flex h-full flex-col">
           <div className="p-6">
             <h2 className="text-lg font-semibold">Hyhom Limited</h2>
@@ -119,7 +119,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 overflow-auto">
+      <main className="flex-1 pl-64">
         <div className="container py-6">
           {children}
         </div>
