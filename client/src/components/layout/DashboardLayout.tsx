@@ -28,13 +28,13 @@ interface SidebarItemProps {
 }
 
 function SidebarItem({ icon, label, href, active, onClick }: SidebarItemProps) {
-  const [, setLocation] = useLocation();
+  const [, navigate] = useLocation();
 
   const handleClick = () => {
-    if (href) {
-      setLocation(href);
-    } else if (onClick) {
+    if (onClick) {
       onClick();
+    } else if (href) {
+      navigate(href);
     }
   };
 
@@ -88,6 +88,14 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
     }
   ];
 
+  const handleLogout = async () => {
+    try {
+      await signOut();
+    } catch (error) {
+      console.error('Failed to logout:', error);
+    }
+  };
+
   return (
     <div className="flex h-screen bg-background">
       {/* Sidebar */}
@@ -111,7 +119,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
             <SidebarItem
               icon={<LogOut className="h-4 w-4" />}
               label={t('auth.signOut')}
-              onClick={() => signOut()}
+              onClick={handleLogout}
             />
           </div>
         </div>
