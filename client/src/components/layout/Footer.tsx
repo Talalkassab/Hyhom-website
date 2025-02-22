@@ -25,31 +25,23 @@ export function Footer() {
             <h3 className="text-xl font-bold mb-4">{t('nav.brands')}</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/brands">
-                  <a className="text-gray-300 hover:text-white transition-colors">
-                    Rice Roll
-                  </a>
+                <Link href="/brands" className="text-gray-300 hover:text-white transition-colors">
+                  Rice Roll
                 </Link>
               </li>
               <li>
-                <Link href="/brands">
-                  <a className="text-gray-300 hover:text-white transition-colors">
-                    Naandori
-                  </a>
+                <Link href="/brands" className="text-gray-300 hover:text-white transition-colors">
+                  Naandori
                 </Link>
               </li>
               <li>
-                <Link href="/brands">
-                  <a className="text-gray-300 hover:text-white transition-colors">
-                    Alshamal For Travel and Tourism
-                  </a>
+                <Link href="/brands" className="text-gray-300 hover:text-white transition-colors">
+                  Alshamal For Travel and Tourism
                 </Link>
               </li>
               <li>
-                <Link href="/brands">
-                  <a className="text-gray-300 hover:text-white transition-colors">
-                    MGSDR
-                  </a>
+                <Link href="/brands" className="text-gray-300 hover:text-white transition-colors">
+                  MGSDR
                 </Link>
               </li>
             </ul>
