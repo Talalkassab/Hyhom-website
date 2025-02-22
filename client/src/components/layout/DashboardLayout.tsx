@@ -24,9 +24,27 @@ interface SidebarItemProps {
   label: string;
   href: string;
   active?: boolean;
+  onClick?: () => void;
 }
 
-function SidebarItem({ icon, label, href, active }: SidebarItemProps) {
+function SidebarItem({ icon, label, href, active, onClick }: SidebarItemProps) {
+  if (onClick) {
+    return (
+      <Button
+        variant="ghost"
+        className={cn(
+          "w-full justify-start gap-3",
+          "hover:bg-accent/50",
+          active ? "bg-accent text-accent-foreground" : "text-muted-foreground"
+        )}
+        onClick={onClick}
+      >
+        {icon}
+        <span>{label}</span>
+      </Button>
+    );
+  }
+
   return (
     <Link href={href}>
       <Button
@@ -98,14 +116,12 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
           </nav>
           <Separator />
           <div className="p-4">
-            <Button
-              variant="ghost"
-              className="w-full justify-start text-muted-foreground"
+            <SidebarItem
+              icon={<LogOut className="h-4 w-4" />}
+              label={t('auth.signOut')}
+              href="#"
               onClick={() => signOut()}
-            >
-              <LogOut className="mr-2 h-4 w-4" />
-              {t('auth.signOut')}
-            </Button>
+            />
           </div>
         </div>
       </aside>

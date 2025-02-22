@@ -31,7 +31,7 @@ export function Header() {
     <header className="fixed w-full bg-white/80 backdrop-blur-sm z-50 border-b">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex">
+          <Link href="/">
             <Logo />
           </Link>
 
@@ -46,27 +46,8 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            {user ? (
-              <>
-                <Link href="/dashboard">
-                  <Button variant="ghost" className="text-gray-600 hover:text-[#2a577e]">
-                    {t('nav.dashboard')}
-                  </Button>
-                </Link>
-                <Link href={`/profile/${user.id}`}>
-                  <Button variant="ghost" size="icon" className="text-gray-600">
-                    <User className="h-5 w-5" />
-                  </Button>
-                </Link>
-              </>
-            ) : (
-              <Link href="/login">
-                <Button variant="outline">
-                  <LogIn className="h-5 w-5 mr-2" />
-                  {loginText}
-                </Button>
-              </Link>
-            )}
+
+            {/* Language Toggle */}
             <Button
               variant="ghost"
               size="icon"
@@ -75,6 +56,24 @@ export function Header() {
             >
               <Globe className="h-5 w-5" />
             </Button>
+
+            {/* Auth Buttons */}
+            {user ? (
+              <div className="flex items-center space-x-2">
+                <Link href={`/profile/${user.id}`}>
+                  <Button variant="ghost" size="icon" className="text-gray-600">
+                    <User className="h-5 w-5" />
+                  </Button>
+                </Link>
+              </div>
+            ) : (
+              <Link href="/login">
+                <Button variant="outline">
+                  <LogIn className="h-5 w-5 mr-2" />
+                  {loginText}
+                </Button>
+              </Link>
+            )}
           </nav>
 
           {/* Mobile Navigation */}
@@ -98,13 +97,9 @@ export function Header() {
                     {item.label}
                   </Link>
                 ))}
+
                 {user ? (
                   <>
-                    <Link href="/dashboard">
-                      <Button variant="ghost" className="w-full justify-start">
-                        {t('nav.dashboard')}
-                      </Button>
-                    </Link>
                     <Link href={`/profile/${user.id}`}>
                       <Button variant="ghost" className="w-full justify-start">
                         <User className="h-5 w-5 mr-2" />
@@ -120,6 +115,7 @@ export function Header() {
                     </Button>
                   </Link>
                 )}
+
                 <Button
                   variant="outline"
                   onClick={toggleLanguage}
