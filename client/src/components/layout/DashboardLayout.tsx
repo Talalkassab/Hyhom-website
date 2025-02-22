@@ -19,24 +19,14 @@ interface DashboardLayoutProps {
   children: ReactNode;
 }
 
-interface SidebarItemProps {
+interface NavItem {
   icon: ReactNode;
   label: string;
-  href?: string;
-  active?: boolean;
-  onClick?: () => void;
+  href: string;
 }
 
-function SidebarItem({ icon, label, href, active, onClick }: SidebarItemProps) {
+function MenuItem({ icon, label, href, active }: NavItem & { active: boolean }) {
   const [, navigate] = useLocation();
-
-  const handleClick = () => {
-    if (onClick) {
-      onClick();
-    } else if (href) {
-      navigate(href);
-    }
-  };
 
   return (
     <Button
@@ -46,7 +36,7 @@ function SidebarItem({ icon, label, href, active, onClick }: SidebarItemProps) {
         "hover:bg-accent/50",
         active ? "bg-accent text-accent-foreground" : "text-muted-foreground"
       )}
-      onClick={handleClick}
+      onClick={() => navigate(href)}
     >
       {icon}
       <span>{label}</span>
@@ -60,7 +50,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
   const { signOut } = useAuth();
   const { t } = useLanguage();
 
-  const navItems = [
+  const navItems: NavItem[] = [
     {
       icon: <LayoutDashboard className="h-4 w-4" />,
       label: t('dashboard.overview'),
@@ -107,7 +97,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
           <Separator />
           <nav className="flex-1 space-y-1 p-4">
             {navItems.map((item) => (
-              <SidebarItem
+              <MenuItem
                 key={item.href}
                 {...item}
                 active={location === item.href}
@@ -116,11 +106,14 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
           </nav>
           <Separator />
           <div className="p-4">
-            <SidebarItem
-              icon={<LogOut className="h-4 w-4" />}
-              label={t('auth.signOut')}
+            <Button
+              variant="ghost"
+              className="w-full justify-start gap-3 text-muted-foreground"
               onClick={handleLogout}
-            />
+            >
+              <LogOut className="h-4 w-4" />
+              <span>{t('auth.signOut')}</span>
+            </Button>
           </div>
         </div>
       </aside>

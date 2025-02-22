@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import { 
   User, 
   Briefcase, 
@@ -8,30 +7,85 @@ import {
   Phone, 
   MapPin, 
   Calendar,
-  DollarSign,
   Star,
   Heart
 } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
+
+interface Employee {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone?: string;
+  address?: string;
+  startDate: string;
+  status: string;
+  position?: {
+    id: number;
+    name: string;
+  };
+  department?: {
+    id: number;
+    name: string;
+  };
+  benefits?: Array<{
+    id: number;
+    name: string;
+  }>;
+}
 
 interface EmployeeProfileProps {
   employeeId: number;
 }
 
 export function EmployeeProfile({ employeeId }: EmployeeProfileProps) {
-  const { data: profile, isLoading, error } = useQuery({
+  const { data: profile, isLoading, error } = useQuery<Employee>({
     queryKey: [`/api/employees/${employeeId}`],
+    enabled: !isNaN(employeeId),
   });
 
   if (isLoading) {
-    return <div>Loading profile...</div>;
+    return (
+      <div className="space-y-6">
+        <Card>
+          <CardHeader>
+            <Skeleton className="h-8 w-[200px]" />
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <Skeleton className="h-4 w-[300px]" />
+              <Skeleton className="h-4 w-[250px]" />
+              <Skeleton className="h-4 w-[200px]" />
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    );
   }
 
   if (error) {
-    return <div>Error loading profile</div>;
+    return (
+      <Card>
+        <CardContent className="py-6">
+          <div className="text-center text-muted-foreground">
+            Error loading employee profile. Please try again later.
+          </div>
+        </CardContent>
+      </Card>
+    );
   }
 
   if (!profile) {
-    return <div>Employee not found</div>;
+    return (
+      <Card>
+        <CardContent className="py-6">
+          <div className="text-center text-muted-foreground">
+            Employee not found
+          </div>
+        </CardContent>
+      </Card>
+    );
   }
 
   return (
