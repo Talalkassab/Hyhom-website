@@ -12,15 +12,30 @@ export default function Profile() {
   useEffect(() => {
     if (!user) {
       navigate('/login');
+      return;
     }
   }, [user, navigate]);
 
-  // If ID matches logged-in user's ID, show profile
-  if (user && user.id.toString() === id) {
+  if (!user || !id) {
+    return (
+      <div className="container mx-auto py-8">
+        <div className="text-center text-muted-foreground">
+          Profile not found or you don't have permission to view it.
+        </div>
+      </div>
+    );
+  }
+
+  // Convert IDs to strings for comparison
+  const userIdString = user.id.toString();
+  const requestedIdString = id.toString();
+
+  // Only show profile if IDs match
+  if (userIdString === requestedIdString) {
     return (
       <div className="container mx-auto py-8">
         <h1 className="text-3xl font-bold mb-8">Employee Profile</h1>
-        <EmployeeProfile employeeId={user.id} />
+        <EmployeeProfile employeeId={parseInt(id, 10)} />
       </div>
     );
   }
@@ -28,7 +43,7 @@ export default function Profile() {
   return (
     <div className="container mx-auto py-8">
       <div className="text-center text-muted-foreground">
-        Profile not found or you don't have permission to view it.
+        You don't have permission to view this profile.
       </div>
     </div>
   );

@@ -15,9 +15,8 @@ import { useAuth } from "@/lib/AuthContext";
 
 interface Employee {
   id: number;
-  firstName: string;
-  lastName: string;
   email: string;
+  displayName?: string;
   phone?: string;
   address?: string;
   startDate: string;
@@ -46,13 +45,11 @@ export function EmployeeProfile({ employeeId }: EmployeeProfileProps) {
   const { data: profile, isLoading, error } = useQuery<Employee>({
     queryKey: [`/api/employees/${employeeId}`],
     enabled: Boolean(employeeId) && Boolean(user),
-    // Assume the employee data is the same as the user data for now
     initialData: user ? {
-      id: user.id,
-      firstName: user.firstName || '',
-      lastName: user.lastName || '',
-      email: user.email,
-      startDate: new Date().toISOString(), // Placeholder
+      id: employeeId,
+      email: user.email || '',
+      displayName: user.displayName || user.email?.split('@')[0] || 'Anonymous User',
+      startDate: new Date().toISOString(),
       status: 'Active',
     } as Employee : undefined,
   });
@@ -111,7 +108,7 @@ export function EmployeeProfile({ employeeId }: EmployeeProfileProps) {
           <div className="grid gap-4">
             <div className="flex items-center gap-2">
               <User className="h-4 w-4" />
-              <span>{profile.firstName} {profile.lastName}</span>
+              <span>{profile.displayName}</span>
             </div>
             <div className="flex items-center gap-2">
               <Mail className="h-4 w-4" />
