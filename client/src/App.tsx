@@ -22,6 +22,7 @@ function PrivateRoute({ component: Component, layout: RouteLayout = DashboardLay
   useEffect(() => {
     if (!loading && !user) {
       setLocation("/login");
+      return;
     }
   }, [user, loading, setLocation]);
 
@@ -64,22 +65,24 @@ function Router() {
         <PublicRoute component={Login} />
       </Route>
 
-      {/* Private Routes */}
+      {/* Dashboard Routes - All under DashboardLayout */}
       <Route path="/dashboard">
         <PrivateRoute component={Dashboard} />
       </Route>
       <Route path="/dashboard/employees">
-        <PrivateRoute component={() => <div>Employees</div>} />
+        <PrivateRoute component={() => <div className="p-6"><h1 className="text-2xl font-bold">Employees</h1></div>} />
       </Route>
       <Route path="/dashboard/departments">
-        <PrivateRoute component={() => <div>Departments</div>} />
+        <PrivateRoute component={() => <div className="p-6"><h1 className="text-2xl font-bold">Departments</h1></div>} />
       </Route>
       <Route path="/dashboard/performance">
-        <PrivateRoute component={() => <div>Performance</div>} />
+        <PrivateRoute component={() => <div className="p-6"><h1 className="text-2xl font-bold">Performance</h1></div>} />
       </Route>
       <Route path="/dashboard/benefits">
-        <PrivateRoute component={() => <div>Benefits</div>} />
+        <PrivateRoute component={() => <div className="p-6"><h1 className="text-2xl font-bold">Benefits</h1></div>} />
       </Route>
+
+      {/* Profile Route - Uses regular Layout */}
       <Route path="/profile/:id">
         <PrivateRoute component={Profile} layout={Layout} />
       </Route>
