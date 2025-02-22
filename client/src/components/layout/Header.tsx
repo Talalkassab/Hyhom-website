@@ -25,6 +25,8 @@ export function Header() {
     setLanguage(language === 'en' ? 'ar' : 'en');
   };
 
+  const loginText = language === 'ar' ? 'تسجيل دخول' : 'Login';
+
   return (
     <header className="fixed w-full bg-white/80 backdrop-blur-sm z-50 border-b">
       <div className="container mx-auto px-4">
@@ -56,7 +58,7 @@ export function Header() {
               <Link href="/login">
                 <Button variant="outline" className="ml-4">
                   <LogIn className="h-5 w-5 mr-2" />
-                  Login
+                  {loginText}
                 </Button>
               </Link>
             )}
@@ -87,7 +89,7 @@ export function Header() {
                   <Link href="/login">
                     <Button variant="outline" className="w-full">
                       <LogIn className="h-5 w-5 mr-2" />
-                      Login
+                      {loginText}
                     </Button>
                   </Link>
                 )}
