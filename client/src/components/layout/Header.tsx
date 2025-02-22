@@ -1,7 +1,7 @@
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/lib/i18n';
-import { MenuIcon, Globe, LogIn } from 'lucide-react';
+import { MenuIcon, Globe, LogIn, User } from 'lucide-react';
 import {
   Sheet,
   SheetContent,
@@ -46,6 +46,27 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
+            {user ? (
+              <>
+                <Link href="/dashboard">
+                  <Button variant="ghost" className="text-gray-600 hover:text-[#2a577e]">
+                    {t('nav.dashboard')}
+                  </Button>
+                </Link>
+                <Link href={`/profile/${user.id}`}>
+                  <Button variant="ghost" size="icon" className="text-gray-600">
+                    <User className="h-5 w-5" />
+                  </Button>
+                </Link>
+              </>
+            ) : (
+              <Link href="/login">
+                <Button variant="outline">
+                  <LogIn className="h-5 w-5 mr-2" />
+                  {loginText}
+                </Button>
+              </Link>
+            )}
             <Button
               variant="ghost"
               size="icon"
@@ -54,14 +75,6 @@ export function Header() {
             >
               <Globe className="h-5 w-5" />
             </Button>
-            {!user && (
-              <Link href="/login">
-                <Button variant="outline" className="ml-4">
-                  <LogIn className="h-5 w-5 mr-2" />
-                  {loginText}
-                </Button>
-              </Link>
-            )}
           </nav>
 
           {/* Mobile Navigation */}
@@ -85,7 +98,21 @@ export function Header() {
                     {item.label}
                   </Link>
                 ))}
-                {!user && (
+                {user ? (
+                  <>
+                    <Link href="/dashboard">
+                      <Button variant="ghost" className="w-full justify-start">
+                        {t('nav.dashboard')}
+                      </Button>
+                    </Link>
+                    <Link href={`/profile/${user.id}`}>
+                      <Button variant="ghost" className="w-full justify-start">
+                        <User className="h-5 w-5 mr-2" />
+                        {t('nav.profile')}
+                      </Button>
+                    </Link>
+                  </>
+                ) : (
                   <Link href="/login">
                     <Button variant="outline" className="w-full">
                       <LogIn className="h-5 w-5 mr-2" />

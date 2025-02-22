@@ -90,55 +90,24 @@ export function EmployeeProfile({ employeeId }: EmployeeProfileProps) {
         </Card>
       )}
 
-      {/* Compensation */}
-      {profile.compensation && (
-        <Card>
-          <CardHeader>
-            <CardTitle>Compensation</CardTitle>
-          </CardHeader>
-          <CardContent>
+      {/* Employee Status */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Employment Status</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid gap-4">
             <div className="flex items-center gap-2">
-              <DollarSign className="h-4 w-4" />
-              <span>
-                {new Intl.NumberFormat('en-US', {
-                  style: 'currency',
-                  currency: profile.compensation.currency
-                }).format(profile.compensation.baseSalary)}
-              </span>
-              <span className="text-sm text-muted-foreground">
-                (Effective from {new Date(profile.compensation.effectiveDate).toLocaleDateString()})
-              </span>
+              <Calendar className="h-4 w-4" />
+              <span>Joined: {new Date(profile.startDate).toLocaleDateString()}</span>
             </div>
-          </CardContent>
-        </Card>
-      )}
-
-      {/* Performance Reviews */}
-      {profile.performanceReviews?.length > 0 && (
-        <Card>
-          <CardHeader>
-            <CardTitle>Recent Performance Reviews</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              {profile.performanceReviews.map((review) => (
-                <div key={review.id} className="border-b pb-4 last:border-0">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Star className="h-4 w-4" />
-                    <span className="font-medium">Rating: {review.rating}/5</span>
-                    <span className="text-sm text-muted-foreground">
-                      ({new Date(review.reviewDate).toLocaleDateString()})
-                    </span>
-                  </div>
-                  {review.comments && (
-                    <p className="text-sm text-muted-foreground">{review.comments}</p>
-                  )}
-                </div>
-              ))}
+            <div className="flex items-center gap-2">
+              <Star className="h-4 w-4" />
+              <span>Status: {profile.status}</span>
             </div>
-          </CardContent>
-        </Card>
-      )}
+          </div>
+        </CardContent>
+      </Card>
 
       {/* Benefits */}
       {profile.benefits?.length > 0 && (
