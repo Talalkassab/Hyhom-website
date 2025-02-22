@@ -6,7 +6,6 @@ import { Layout } from "@/components/layout/Layout";
 import { useAuth, AuthProvider } from "@/lib/AuthContext";
 import { useEffect } from "react";
 import Login from "@/pages/Login";
-import Signup from "@/pages/Signup";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Brands from "@/pages/Brands";
@@ -38,7 +37,6 @@ function Router() {
       <Route path="/brands" component={Brands} />
       <Route path="/contact" component={Contact} />
       <Route path="/login" component={Login} />
-      <Route path="/signup" component={Signup} />
       <Route component={NotFound} />
     </Switch>
   );

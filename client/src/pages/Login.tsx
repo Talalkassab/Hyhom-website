@@ -87,17 +87,6 @@ export default function Login() {
               : (language === 'ar' ? 'تسجيل الدخول' : 'Sign in')}
           </Button>
         </form>
-
-        <div className="text-center text-sm" dir={language === 'ar' ? 'rtl' : 'ltr'}>
-          {language === 'ar' ? 'ليس لديك حساب؟' : "Don't have an account?"}{" "}
-          <Button
-            variant="link"
-            className="px-0"
-            onClick={() => setLocation("/signup")}
-          >
-            {language === 'ar' ? 'إنشاء حساب' : 'Sign up'}
-          </Button>
-        </div>
       </div>
     </div>
   );
