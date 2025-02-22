@@ -29,12 +29,8 @@ export default function Login() {
       setIsLoading(true);
       await signIn(data);
       setLocation("/dashboard");
-    } catch (error) {
-      toast({
-        variant: "destructive",
-        title: language === 'ar' ? 'خطأ' : 'Error',
-        description: error instanceof Error ? error.message : language === 'ar' ? 'فشل تسجيل الدخول' : 'Failed to sign in',
-      });
+    } catch (error: any) {
+      // Error handling is now done in AuthContext
     } finally {
       setIsLoading(false);
     }
@@ -49,8 +45,8 @@ export default function Login() {
           </h1>
           <p className="text-sm text-muted-foreground">
             {language === 'ar' 
-              ? 'أدخل بريدك الإلكتروني لتسجيل الدخول إلى حسابك'
-              : 'Enter your email to sign in to your account'}
+              ? 'أدخل بريدك الإلكتروني وكلمة المرور لتسجيل الدخول'
+              : 'Enter your email and password to sign in'}
           </p>
         </div>
 
@@ -61,6 +57,7 @@ export default function Login() {
               placeholder={language === 'ar' ? 'البريد الإلكتروني' : 'Email'}
               {...form.register("email")}
               className={language === 'ar' ? 'text-right' : ''}
+              autoComplete="email"
             />
             {form.formState.errors.email && (
               <p className="text-sm text-destructive" dir={language === 'ar' ? 'rtl' : 'ltr'}>
@@ -74,6 +71,7 @@ export default function Login() {
               placeholder={language === 'ar' ? 'كلمة المرور' : 'Password'}
               {...form.register("password")}
               className={language === 'ar' ? 'text-right' : ''}
+              autoComplete="current-password"
             />
             {form.formState.errors.password && (
               <p className="text-sm text-destructive" dir={language === 'ar' ? 'rtl' : 'ltr'}>

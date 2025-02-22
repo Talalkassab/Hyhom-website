@@ -18,11 +18,8 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
-  const [retryAttempts, setRetryAttempts] = useState(0);
   const { toast } = useToast();
   const { language } = useLanguage();
-  const MAX_RETRY_ATTEMPTS = 3;
-  const RETRY_DELAY = 2000;
 
   useEffect(() => {
     let mounted = true;
@@ -47,8 +44,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     };
   }, []);
 
-  const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
-
   const getErrorMessage = (error: any) => {
     const isArabic = language === 'ar';
 
@@ -61,13 +56,21 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         title: isArabic ? 'خطأ في تسجيل الدخول' : 'Login Error',
         message: isArabic ? 'البريد الإلكتروني أو كلمة المرور غير صحيحة' : 'Email or password is incorrect'
       },
+      email_not_confirmed: {
+        title: isArabic ? 'البريد الإلكتروني غير مؤكد' : 'Email Not Confirmed',
+        message: isArabic 
+          ? 'يرجى التحقق من بريدك الإلكتروني والنقر على رابط التأكيد قبل تسجيل الدخول'
+          : 'Please check your email and click the confirmation link before signing in'
+      },
       rate_limit: {
         title: isArabic ? 'محاولات كثيرة' : 'Too Many Attempts',
         message: isArabic ? 'يرجى الانتظار قليلاً قبل المحاولة مرة أخرى' : 'Please wait a moment before trying again'
       }
     };
 
-    if (error.message?.includes('Invalid login credentials')) {
+    if (error.message?.includes('Email not confirmed')) {
+      return messages.email_not_confirmed;
+    } else if (error.message?.includes('Invalid login credentials')) {
       return messages.invalid_credentials;
     } else if (error.message?.includes('rate limit')) {
       return messages.rate_limit;
@@ -76,34 +79,21 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return messages.default;
   };
 
-  const handleAuthError = async (error: any, operation: () => Promise<any>) => {
-    const { title, message } = getErrorMessage(error);
-
-    if (error.message?.includes('rate limit') && retryAttempts < MAX_RETRY_ATTEMPTS) {
-      setRetryAttempts(prev => prev + 1);
-      await sleep(RETRY_DELAY * (retryAttempts + 1));
-      return operation();
-    }
-
-    toast({
-      variant: "destructive",
-      title,
-      description: message,
-    });
-
-    throw error;
-  };
-
   const signIn = async (credentials: LoginCredentials) => {
     try {
-      setRetryAttempts(0);
       const { data, error } = await supabase.auth.signInWithPassword({
         email: credentials.email,
         password: credentials.password,
       });
 
       if (error) {
-        return handleAuthError(error, () => signIn(credentials));
+        const { title, message } = getErrorMessage(error);
+        toast({
+          variant: "destructive",
+          title,
+          description: message,
+        });
+        throw error;
       }
 
       if (!data.user) {
@@ -111,13 +101,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       }
 
     } catch (error: any) {
-      await handleAuthError(error, () => signIn(credentials));
+      const { title, message } = getErrorMessage(error);
+      toast({
+        variant: "destructive",
+        title,
+        description: message,
+      });
+      throw error;
     }
   };
 
   const signUp = async (credentials: SignupCredentials) => {
     try {
-      setRetryAttempts(0);
       const { data, error } = await supabase.auth.signUp({
         email: credentials.email,
         password: credentials.password,
@@ -129,15 +124,35 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       });
 
       if (error) {
-        return handleAuthError(error, () => signUp(credentials));
+        const { title, message } = getErrorMessage(error);
+        toast({
+          variant: "destructive",
+          title,
+          description: message,
+        });
+        throw error;
       }
 
       if (!data.user) {
         throw new Error('No user data returned');
       }
 
+      // Show success message about email confirmation
+      toast({
+        title: language === 'ar' ? 'تم التسجيل بنجاح' : 'Registration Successful',
+        description: language === 'ar' 
+          ? 'تم إرسال رابط التأكيد إلى بريدك الإلكتروني. يرجى التحقق من بريدك الإلكتروني لتأكيد حسابك.'
+          : 'A confirmation link has been sent to your email. Please check your email to confirm your account.',
+      });
+
     } catch (error: any) {
-      await handleAuthError(error, () => signUp(credentials));
+      const { title, message } = getErrorMessage(error);
+      toast({
+        variant: "destructive",
+        title,
+        description: message,
+      });
+      throw error;
     }
   };
 
