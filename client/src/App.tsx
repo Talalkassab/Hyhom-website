@@ -14,6 +14,11 @@ import Contact from "@/pages/Contact";
 import Profile from "@/pages/Profile";
 import Dashboard from "@/pages/Dashboard";
 import NotFound from "@/pages/not-found";
+import HRAssistant from "@/pages/assistants/HRAssistant";
+import MarketingAssistant from "@/pages/assistants/MarketingAssistant";
+import BusinessAnalysisAssistant from "@/pages/assistants/BusinessAnalysisAssistant";
+import OperationalAssistant from "@/pages/assistants/OperationalAssistant";
+import GeneralAssistant from "@/pages/assistants/GeneralAssistant";
 
 function PrivateRoute({ component: Component }) {
   const { user, loading } = useAuth();
@@ -108,6 +113,23 @@ function Router() {
             <h1 className="text-2xl font-bold">Benefits</h1>
           </div>
         )} />
+      </Route>
+
+      {/* AI Assistant Routes */}
+      <Route path="/dashboard/assistants/hr">
+        <DashboardRoute component={HRAssistant} />
+      </Route>
+      <Route path="/dashboard/assistants/marketing">
+        <DashboardRoute component={MarketingAssistant} />
+      </Route>
+      <Route path="/dashboard/assistants/business">
+        <DashboardRoute component={BusinessAnalysisAssistant} />
+      </Route>
+      <Route path="/dashboard/assistants/operational">
+        <DashboardRoute component={OperationalAssistant} />
+      </Route>
+      <Route path="/dashboard/assistants/general">
+        <DashboardRoute component={GeneralAssistant} />
       </Route>
 
       {/* Profile Route */}

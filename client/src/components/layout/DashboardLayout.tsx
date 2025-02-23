@@ -11,7 +11,8 @@ import {
   LogOut,
   ChevronRight,
   ChevronDown,
-  FolderIcon
+  FolderIcon,
+  Bot
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -63,6 +64,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
   const { signOut } = useAuth();
   const { t } = useLanguage();
   const [isHROpen, setIsHROpen] = useState(true);
+  const [isAIOpen, setIsAIOpen] = useState(true);
 
   const dashboardItem: NavItem = {
     icon: <LayoutDashboard className="h-4 w-4" />,
@@ -93,6 +95,38 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
         icon: <Heart className="h-4 w-4" />,
         label: t('dashboard.benefits'),
         href: '/dashboard/benefits'
+      }
+    ]
+  };
+
+  const aiGroup: NavGroup = {
+    icon: <Bot className="h-4 w-4" />,
+    label: "AI Assistants",
+    items: [
+      {
+        icon: <Users className="h-4 w-4" />,
+        label: "HR Assistant",
+        href: '/dashboard/assistants/hr'
+      },
+      {
+        icon: <Building2 className="h-4 w-4" />,
+        label: "Marketing Assistant",
+        href: '/dashboard/assistants/marketing'
+      },
+      {
+        icon: <LineChart className="h-4 w-4" />,
+        label: "Business Analysis",
+        href: '/dashboard/assistants/business'
+      },
+      {
+        icon: <Heart className="h-4 w-4" />,
+        label: "Operational Assistant",
+        href: '/dashboard/assistants/operational'
+      },
+      {
+        icon: <Bot className="h-4 w-4" />,
+        label: "General Assistant",
+        href: '/dashboard/assistants/general'
       }
     ]
   };
@@ -140,6 +174,35 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
               </CollapsibleTrigger>
               <CollapsibleContent className="space-y-1 pl-6">
                 {hrGroup.items.map((item) => (
+                  <MenuItem
+                    key={item.href}
+                    {...item}
+                    active={location === item.href}
+                  />
+                ))}
+              </CollapsibleContent>
+            </Collapsible>
+
+            <Collapsible
+              open={isAIOpen}
+              onOpenChange={setIsAIOpen}
+              className="space-y-1"
+            >
+              <CollapsibleTrigger asChild>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start gap-3 text-muted-foreground"
+                >
+                  {aiGroup.icon}
+                  <span>{aiGroup.label}</span>
+                  <ChevronDown className={cn(
+                    "ml-auto h-4 w-4 transition-transform duration-200",
+                    isAIOpen && "rotate-180"
+                  )} />
+                </Button>
+              </CollapsibleTrigger>
+              <CollapsibleContent className="space-y-1 pl-6">
+                {aiGroup.items.map((item) => (
                   <MenuItem
                     key={item.href}
                     {...item}
