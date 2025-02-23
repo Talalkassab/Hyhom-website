@@ -18,7 +18,24 @@ export const translations = {
     "services.indian.title": "Naandori",
     "services.indian.description": "A restaurant specialized in Indian fast food, serving delicious meals in creative packaging that is easy to enjoy anywhere.",
     "services.burger.title": "MGSDR",
-    "services.burger.description": "Enjoy classic, high-quality beef burgers, provided in simple packaging and cooked with love."
+    "services.burger.description": "Enjoy classic, high-quality beef burgers, provided in simple packaging and cooked with love.",
+
+    // Dashboard translations
+    "dashboard.welcome": "Welcome to Dashboard",
+    "dashboard.overview": "Overview",
+    "dashboard.employees": "Employees",
+    "dashboard.departments": "Departments",
+    "dashboard.performance": "Performance",
+    "dashboard.benefits": "Benefits",
+    "dashboard.metrics.totalEmployees": "Total Employees",
+    "dashboard.metrics.activeMembers": "Active team members",
+    "dashboard.metrics.departments": "Departments",
+    "dashboard.metrics.activeDepartments": "Active departments",
+    "dashboard.metrics.growth": "Growth Rate",
+    "dashboard.metrics.yearlyGrowth": "Year over year growth",
+    "dashboard.metrics.performance": "Performance",
+    "dashboard.metrics.averageRating": "Average rating out of 5",
+    "auth.signOut": "Sign Out"
   },
   ar: {
     "nav.home": "الرئيسية",
@@ -39,6 +56,23 @@ export const translations = {
     "services.indian.title": "ناندوري",
     "services.indian.description": "مطعم متخصص في الوجبات السريعة الهندية، يقدم وجبات لذيذة بتغليف مبتكر يسهل تناوله في أي مكان.",
     "services.burger.title": "مقصدر",
-    "services.burger.description": "استمتع ببرجر كلاسيكي عالي الجودة يقدم بتغليف بسيط ويُطهى بشغف."
+    "services.burger.description": "استمتع ببرجر كلاسيكي عالي الجودة يقدم بتغليف بسيط ويُطهى بشغف.",
+
+    // Dashboard translations in Arabic
+    "dashboard.welcome": "مرحباً بك في لوحة التحكم",
+    "dashboard.overview": "نظرة عامة",
+    "dashboard.employees": "الموظفون",
+    "dashboard.departments": "الأقسام",
+    "dashboard.performance": "الأداء",
+    "dashboard.benefits": "المزايا",
+    "dashboard.metrics.totalEmployees": "إجمالي الموظفين",
+    "dashboard.metrics.activeMembers": "الأعضاء النشطون",
+    "dashboard.metrics.departments": "الأقسام",
+    "dashboard.metrics.activeDepartments": "الأقسام النشطة",
+    "dashboard.metrics.growth": "معدل النمو",
+    "dashboard.metrics.yearlyGrowth": "النمو السنوي",
+    "dashboard.metrics.performance": "الأداء",
+    "dashboard.metrics.averageRating": "متوسط التقييم من 5",
+    "auth.signOut": "تسجيل الخروج"
   }
 };
