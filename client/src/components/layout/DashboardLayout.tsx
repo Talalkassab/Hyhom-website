@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 import { useLocation } from 'wouter';
 import { useAuth } from '@/lib/AuthContext';
 import { useLanguage } from '@/lib/i18n';
@@ -9,11 +9,18 @@ import {
   LineChart,
   Heart,
   LogOut,
-  ChevronRight
+  ChevronRight,
+  ChevronDown,
+  FolderIcon
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
 interface DashboardLayoutProps {
   children: ReactNode;
@@ -23,6 +30,12 @@ interface NavItem {
   icon: ReactNode;
   label: string;
   href: string;
+}
+
+interface NavGroup {
+  icon: ReactNode;
+  label: string;
+  items: NavItem[];
 }
 
 function MenuItem({ icon, label, href, active }: NavItem & { active: boolean }) {
@@ -49,34 +62,40 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
   const [location] = useLocation();
   const { signOut } = useAuth();
   const { t } = useLanguage();
+  const [isHROpen, setIsHROpen] = useState(true);
 
-  const navItems: NavItem[] = [
-    {
-      icon: <LayoutDashboard className="h-4 w-4" />,
-      label: t('dashboard.overview'),
-      href: '/dashboard'
-    },
-    {
-      icon: <Users className="h-4 w-4" />,
-      label: t('dashboard.employees'),
-      href: '/dashboard/employees'
-    },
-    {
-      icon: <Building2 className="h-4 w-4" />,
-      label: t('dashboard.departments'),
-      href: '/dashboard/departments'
-    },
-    {
-      icon: <LineChart className="h-4 w-4" />,
-      label: t('dashboard.performance'),
-      href: '/dashboard/performance'
-    },
-    {
-      icon: <Heart className="h-4 w-4" />,
-      label: t('dashboard.benefits'),
-      href: '/dashboard/benefits'
-    }
-  ];
+  const dashboardItem: NavItem = {
+    icon: <LayoutDashboard className="h-4 w-4" />,
+    label: t('dashboard.overview'),
+    href: '/dashboard'
+  };
+
+  const hrGroup: NavGroup = {
+    icon: <FolderIcon className="h-4 w-4" />,
+    label: "HR Info",
+    items: [
+      {
+        icon: <Users className="h-4 w-4" />,
+        label: t('dashboard.employees'),
+        href: '/dashboard/employees'
+      },
+      {
+        icon: <Building2 className="h-4 w-4" />,
+        label: t('dashboard.departments'),
+        href: '/dashboard/departments'
+      },
+      {
+        icon: <LineChart className="h-4 w-4" />,
+        label: t('dashboard.performance'),
+        href: '/dashboard/performance'
+      },
+      {
+        icon: <Heart className="h-4 w-4" />,
+        label: t('dashboard.benefits'),
+        href: '/dashboard/benefits'
+      }
+    ]
+  };
 
   const handleLogout = async () => {
     try {
@@ -96,13 +115,39 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
           </div>
           <Separator />
           <nav className="flex-1 space-y-1 p-4">
-            {navItems.map((item) => (
-              <MenuItem
-                key={item.href}
-                {...item}
-                active={location === item.href}
-              />
-            ))}
+            <MenuItem
+              {...dashboardItem}
+              active={location === dashboardItem.href}
+            />
+
+            <Collapsible
+              open={isHROpen}
+              onOpenChange={setIsHROpen}
+              className="space-y-1"
+            >
+              <CollapsibleTrigger asChild>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start gap-3 text-muted-foreground"
+                >
+                  {hrGroup.icon}
+                  <span>{hrGroup.label}</span>
+                  <ChevronDown className={cn(
+                    "ml-auto h-4 w-4 transition-transform duration-200",
+                    isHROpen && "rotate-180"
+                  )} />
+                </Button>
+              </CollapsibleTrigger>
+              <CollapsibleContent className="space-y-1 pl-6">
+                {hrGroup.items.map((item) => (
+                  <MenuItem
+                    key={item.href}
+                    {...item}
+                    active={location === item.href}
+                  />
+                ))}
+              </CollapsibleContent>
+            </Collapsible>
           </nav>
           <Separator />
           <div className="p-4">
