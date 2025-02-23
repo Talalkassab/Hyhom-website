@@ -30,7 +30,11 @@ function PrivateRoute({ component: Component }) {
     return <div>Loading...</div>;
   }
 
-  return user ? <Component /> : null;
+  return user ? (
+    <Layout>
+      <Component />
+    </Layout>
+  ) : null;
 }
 
 function PublicRoute({ component: Component }) {
@@ -106,7 +110,7 @@ function Router() {
         )} />
       </Route>
 
-      {/* Profile Route - Uses regular Layout */}
+      {/* Profile Route */}
       <Route path="/profile/:id">
         <PrivateRoute component={Profile} />
       </Route>
