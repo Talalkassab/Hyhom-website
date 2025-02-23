@@ -1,12 +1,20 @@
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/lib/i18n';
-import { MenuIcon, Globe, LogIn, User, LogOut } from 'lucide-react';
+import { MenuIcon, Globe, User, LogOut, LayoutDashboard } from 'lucide-react';
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Logo } from './Logo';
 import { useAuth } from '@/lib/AuthContext';
 
@@ -35,6 +43,7 @@ export function Header() {
 
   const loginText = language === 'ar' ? 'تسجيل دخول' : 'Login';
   const profileText = language === 'ar' ? 'الملف الشخصي' : 'Profile';
+  const dashboardText = language === 'ar' ? 'لوحة التحكم' : 'Dashboard';
   const logoutText = language === 'ar' ? 'تسجيل خروج' : 'Logout';
   const profilePath = user ? `/profile/${user.id}` : '/login';
 
@@ -68,24 +77,41 @@ export function Header() {
               <Globe className="h-5 w-5" />
             </Button>
 
-            {/* Auth Buttons */}
+            {/* Auth Menu */}
             {user ? (
-              <div className="flex items-center gap-2">
-                <Link href={profilePath}>
-                  <Button variant="outline">
-                    <User className="h-5 w-5 mr-2" />
-                    {profileText}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+                    <Avatar className="h-8 w-8">
+                      <AvatarImage src={user.avatar_url} alt={user.email} />
+                      <AvatarFallback>{user.email?.charAt(0).toUpperCase()}</AvatarFallback>
+                    </Avatar>
                   </Button>
-                </Link>
-                <Button variant="ghost" onClick={handleLogout}>
-                  <LogOut className="h-5 w-5 mr-2" />
-                  {logoutText}
-                </Button>
-              </div>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <Link href={profilePath}>
+                    <DropdownMenuItem>
+                      <User className="mr-2 h-4 w-4" />
+                      <span>{profileText}</span>
+                    </DropdownMenuItem>
+                  </Link>
+                  <Link href="/dashboard">
+                    <DropdownMenuItem>
+                      <LayoutDashboard className="mr-2 h-4 w-4" />
+                      <span>{dashboardText}</span>
+                    </DropdownMenuItem>
+                  </Link>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={handleLogout}>
+                    <LogOut className="mr-2 h-4 w-4" />
+                    <span>{logoutText}</span>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             ) : (
               <Link href="/login">
                 <Button variant="outline">
-                  <LogIn className="h-5 w-5 mr-2" />
+                  <User className="h-5 w-5 mr-2" />
                   {loginText}
                 </Button>
               </Link>
@@ -118,24 +144,30 @@ export function Header() {
                 {user ? (
                   <>
                     <Link href={profilePath}>
-                      <Button variant="outline" className="w-full">
-                        <User className="h-5 w-5 mr-2" />
+                      <Button variant="outline" className="w-full justify-start gap-3">
+                        <User className="h-5 w-5" />
                         {profileText}
+                      </Button>
+                    </Link>
+                    <Link href="/dashboard">
+                      <Button variant="outline" className="w-full justify-start gap-3">
+                        <LayoutDashboard className="h-5 w-5" />
+                        {dashboardText}
                       </Button>
                     </Link>
                     <Button 
                       variant="ghost" 
                       onClick={handleLogout}
-                      className="w-full"
+                      className="w-full justify-start gap-3"
                     >
-                      <LogOut className="h-5 w-5 mr-2" />
+                      <LogOut className="h-5 w-5" />
                       {logoutText}
                     </Button>
                   </>
                 ) : (
                   <Link href="/login">
-                    <Button variant="outline" className="w-full">
-                      <LogIn className="h-5 w-5 mr-2" />
+                    <Button variant="outline" className="w-full justify-start gap-3">
+                      <User className="h-5 w-5" />
                       {loginText}
                     </Button>
                   </Link>
@@ -145,8 +177,9 @@ export function Header() {
                 <Button
                   variant="outline"
                   onClick={toggleLanguage}
-                  className="w-full"
+                  className="w-full justify-start gap-3"
                 >
+                  <Globe className="h-5 w-5" />
                   {language === 'en' ? 'العربية' : 'English'}
                 </Button>
               </nav>
