@@ -14,6 +14,7 @@ import {
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { Header } from './Header';
 
 interface DashboardLayoutProps {
   children: ReactNode;
@@ -87,43 +88,46 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
   };
 
   return (
-    <div className="flex min-h-screen bg-background">
-      {/* Sidebar */}
-      <aside className="fixed top-0 left-0 h-screen w-64 border-r bg-card">
-        <div className="flex h-full flex-col">
-          <div className="p-6">
-            <h2 className="text-lg font-semibold">Hyhom Limited</h2>
+    <div className="flex min-h-screen flex-col bg-background">
+      <Header />
+      <div className="flex flex-1 pt-20">
+        {/* Sidebar */}
+        <aside className="fixed top-20 left-0 h-[calc(100vh-5rem)] w-64 border-r bg-card">
+          <div className="flex h-full flex-col">
+            <div className="p-6">
+              <h2 className="text-lg font-semibold">Hyhom Limited</h2>
+            </div>
+            <Separator />
+            <nav className="flex-1 space-y-1 p-4">
+              {navItems.map((item) => (
+                <MenuItem
+                  key={item.href}
+                  {...item}
+                  active={location === item.href}
+                />
+              ))}
+            </nav>
+            <Separator />
+            <div className="p-4">
+              <Button
+                variant="ghost"
+                className="w-full justify-start gap-3 text-muted-foreground"
+                onClick={handleLogout}
+              >
+                <LogOut className="h-4 w-4" />
+                <span>{t('auth.signOut')}</span>
+              </Button>
+            </div>
           </div>
-          <Separator />
-          <nav className="flex-1 space-y-1 p-4">
-            {navItems.map((item) => (
-              <MenuItem
-                key={item.href}
-                {...item}
-                active={location === item.href}
-              />
-            ))}
-          </nav>
-          <Separator />
-          <div className="p-4">
-            <Button
-              variant="ghost"
-              className="w-full justify-start gap-3 text-muted-foreground"
-              onClick={handleLogout}
-            >
-              <LogOut className="h-4 w-4" />
-              <span>{t('auth.signOut')}</span>
-            </Button>
-          </div>
-        </div>
-      </aside>
+        </aside>
 
-      {/* Main Content */}
-      <main className="flex-1 pl-64">
-        <div className="container py-6">
-          {children}
-        </div>
-      </main>
+        {/* Main Content */}
+        <main className="flex-1 pl-64">
+          <div className="container py-6">
+            {children}
+          </div>
+        </main>
+      </div>
     </div>
   );
 }
