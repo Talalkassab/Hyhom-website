@@ -1,0 +1,36 @@
+chunk-276SZO74.js?v=65f4a35a:521 Warning: validateDOMNesting(...): <a> cannot appear as a descendant of <a>.
+    at a
+    at a
+    at https://a95199f4-702c-4f3a-8a5c-97936e934a55-00-l3kqil2wm6i2.worf.replit.de…/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=65f4a35a:337:18
+    at li
+    at ul
+    at div
+    at div
+    at div
+    at footer
+    at Footer (https://a95199f4-702c-4f3a-8a5c-97936e934a55-00-l3kqil2wm6i2.worf.replit.dev/src/components/layout/Footer.tsx:22:17)
+    at div
+    at Layout (https://a95199f4-702c-4f3a-8a5c-97936e934a55-00-l3kqil2wm6i2.worf.replit.dev/src/components/layout/Layout.tsx:21:26)
+    at AuthProvider (https://a95199f4-702c-4f3a-8a5c-97936e934a55-00-l3kqil2wm6i2.worf.replit.dev/src/lib/AuthContext.tsx:22:32)
+    at QueryClientProvider (https://a95199f4-702c-4f3a-8a5c-97936e934a55-00-l3kqil2wm6i2.worf.replit.de…rkspace/node_modules/.vite/deps/@tanstack_react-query.js?v=65f4a35a:2805:3)
+    at App
+    at AuthProvider (https://a95199f4-702c-4f3a-8a5c-97936e934a55-00-l3kqil2wm6i2.worf.replit.dev/src/lib/AuthContext.tsx?v=u8Gx28Qp9ssz0Nh813IGV:22:32)
+    at QueryClientProvider (https://a95199f4-702c-4f3a-8a5c-97936e934a55-00-l3kqil2wm6i2.worf.replit.de…rkspace/node_modules/.vite/deps/@tanstack_react-query.js?v=65f4a35a:2805:3)
+
+login:1 [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) 
+AuthContext.tsx:40 
+ POST https://kjgtlzdxzvfnaaumiwfb.supabase.co/auth/v1/token?grant_type=password 400 (Bad Request)
+signIn	@	AuthContext.tsx:40
+onSubmit	@	Login.tsx:30
+AuthContext.tsx:46 Supabase Auth Error: AuthApiError: Invalid login credentials
+    at async signIn (AuthContext.tsx:40:31)
+    at async onSubmit (Login.tsx:30:7)
+signIn	@	AuthContext.tsx:46
+await in signIn		
+onSubmit	@	Login.tsx:30
+AuthContext.tsx:55 Detailed Auth Error: AuthApiError: Invalid login credentials
+    at async signIn (AuthContext.tsx:40:31)
+    at async onSubmit (Login.tsx:30:7)
+signIn	@	AuthContext.tsx:55
+await in signIn		
+onSubmit	@	Login.tsx:30

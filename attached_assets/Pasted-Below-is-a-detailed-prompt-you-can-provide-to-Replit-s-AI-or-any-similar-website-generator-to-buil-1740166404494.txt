@@ -1,0 +1,142 @@
+Below is a detailed prompt you can provide to Replit’s AI (or any similar website generator) to build a bilingual (Arabic/English) website for “Hyhom Limited.” It includes instructions on design (colors, typography, layout) based on the Brand Book, as well as textual content (mission, vision, services, contact) extracted from the company portfolio. Feel free to adjust any sections as needed.
+
+---
+## Prompt for Replit AI:
+
+**Title/Project Name**  
+Hyhom Limited – Bilingual Website (Arabic & English)
+
+---
+
+### 1. General Design & Branding
+
+- **Overall Theme**: Clean, modern, and minimalistic to reflect Hyhom Limited’s professional, forward-thinking identity.
+- **Color Palette (from Brand Book)**  
+  - Primary Color: `#2a577e` (RGB 42, 87, 126)  
+  - Secondary Color: `#6fbeb8` (RGB 111, 190, 184)  
+  - Use white or very light grays for backgrounds to ensure clarity and contrast.
+- **Typography**  
+  - Primary Font: *Poppins Light* (for English content).  
+  - For Arabic text, use a clean, modern Arabic web font (e.g., *Tajawal* or *Cairo*) to match the simple style of Poppins.
+- **Visual Elements**  
+  - Incorporate the brand pattern from the Brand Book as subtle background accents or section dividers.
+  - Keep images and icons consistent with the brand’s modern, minimal style.
+  - Ensure the site’s layout is responsive for both desktop and mobile.
+
+---
+
+### 2. Site Structure & Pages
+
+Create a bilingual navigation system, with a language toggle (Arabic ↔ English). Each main page will have English content and Arabic content side by side or via toggle.
+
+#### A. Home (الرئيسية)
+
+**English Section**  
+- Prominent hero banner featuring the Hyhom logo and brand colors.  
+- Tagline: “Innovative Food & Beverage Experiences for Everyday Life.”  
+- Brief introduction: “Welcome to Hyhom Limited – delivering passion and innovation in the food and beverage industry, and beyond.”
+
+**Arabic Section**  
+- صورة بانر رئيسي تظهر شعار Hyhom وألوان العلامة التجارية.  
+- الشعار: "تجارب طعام وشراب مبتكرة لحياة يومية أكثر متعة."  
+- مقدمة موجزة: "مرحبًا بكم في Hyhom Limited – نقدم الشغف والابتكار في قطاع الأغذية والمشروبات، والمزيد."
+
+---
+
+#### B. About Us (من نحن)
+
+**English Section**  
+- **Mission**: “Our mission is to provide innovative and passionate food and beverage experiences that make everyday life more enjoyable. We work hard to deliver products and services that delight our consumers and clients, and we are constantly innovating to improve the way we do business.”  
+- **Vision**: “Our vision is to be a leading player in the food and beverage industry in the Kingdom of Saudi Arabia by 2030, providing high-quality products and services that meet the needs of our customers.”
+
+**Arabic Section**  
+- **الرسالة**:  
+  "تتمثل رسالتنا في تقديم تجارب طعام وشراب مبتكرة وشغوفة تجعل الحياة اليومية أكثر متعة. نعمل بجد لتقديم منتجات وخدمات تسعد عملاءنا، ونواصل الابتكار لتحسين أساليب عملنا باستمرار."  
+- **الرؤية**:  
+  "تتمثل رؤيتنا في أن نكون من الرواد في مجال الأغذية والمشروبات في المملكة العربية السعودية بحلول عام 2030، وذلك من خلال تقديم منتجات وخدمات عالية الجودة تلبي احتياجات عملائنا."
+
+---
+
+#### C. Services (الخدمات)
+
+Introduce each industry or restaurant concept under Hyhom Limited. Use clear imagery or icons for each.  
+
+1. **Travel and Tourism** (السفر والسياحة)  
+   - **English**:  
+     “Originally known as Kassab Travel and Tourism, established in 1991, making it one of the oldest agencies in the region. We offer comprehensive travel solutions to serve diverse customer needs.”  
+   - **Arabic**:  
+     "كانت تُعرف سابقًا باسم كَسّاب للسفر والسياحة منذ عام 1991، مما يجعلها واحدة من أقدم الوكالات في المنطقة. نقدم حلول سفر شاملة لتلبية احتياجات العملاء المتنوعة."
+
+2. **Food and Beverage Brands** (علامات الأغذية والمشروبات)
+   - **Rice Roll (Sushi)**  
+     - **English**:  
+       “Established in April 2021, Rice Roll is the first sushi-specialized restaurant in Tabuk, Saudi Arabia. A Japanese fast-food style restaurant highly rated by our customers.”  
+     - **Arabic**:  
+       "تأسس في أبريل 2021، وهو أول مطعم متخصص بالسوشي في تبوك بالمملكة العربية السعودية. مطعم ذو طابع الوجبات السريعة اليابانية وحظي بتقييمات عالية من عملائنا."
+   - **Indian Fast Food**  
+     - **English**:  
+       “A restaurant specialized in Indian fast food, serving delicious meals in creative packaging that is easy to enjoy anywhere.”  
+     - **Arabic**:  
+       "مطعم متخصص في الوجبات السريعة الهندية، يقدم وجبات لذيذة بتغليف مبتكر يسهل تناوله في أي مكان."
+   - **Fried Chicken**  
+     - **English**:  
+       “A fried chicken restaurant beloved by our customers for its variety of flavorful choices.”  
+     - **Arabic**:  
+       "مطعم متخصص في الدجاج المقلي، يحظى بحب عملائنا لتنوع خياراته الشهية."
+   - **Chinese/Asian Fast Food**  
+     - **English**:  
+       “Our latest cloud brand, specialized in Chinese/Asian fast food.”  
+     - **Arabic**:  
+       "أحدث علامة سحابية لدينا، متخصصة في الوجبات السريعة الصينية/الآسيوية."
+   - **Burger Concept**  
+     - **English**:  
+       “Enjoy classic, high-quality beef burgers, provided in simple packaging and cooked with love.”  
+     - **Arabic**:  
+       "استمتع ببرجر كلاسيكي عالي الجودة يقدم بتغليف بسيط ويُطهى بشغف."
+
+---
+
+#### D. Contact Us (اتصل بنا)
+
+**English Section**  
+- Email: Info@Hyhom.sa  
+- Phone: +966561876440  
+- Contact Person: Talal Alhamidi
+
+**Arabic Section**  
+- البريد الإلكتروني: Info@Hyhom.sa  
+- الهاتف: +966561876440  
+- الشخص المسؤول: طلال الحميدي
+
+Encourage visitors to reach out for inquiries, partnerships, or more information.
+
+---
+
+### 3. Layout & Functionality
+
+- **Header & Footer**  
+  - Display company logo in the header (left-aligned in LTR, right-aligned in RTL).  
+  - Include quick navigation links (Home, About, Services, Contact).  
+  - Footer: repeat contact info, quick links, and a language toggle or button for switching languages.
+- **Responsive Design**  
+  - Ensure the website adapts smoothly to mobile, tablet, and desktop screens.
+- **Language Toggle**  
+  - Prominently place a button or icon to switch between English and Arabic content.
+- **Brand Consistency**  
+  - Use the primary color `#2a577e` for headers, nav bars, buttons, and other key UI elements.  
+  - Use the secondary color `#6fbeb8` for highlights, hover effects, or calls-to-action.  
+  - Maintain consistent font usage (Poppins Light in English, a matching Arabic font) with adequate spacing and readability.
+
+---
+
+### 4. Additional Notes
+
+- Ensure that Arabic text is displayed right-to-left (RTL) properly, including alignment of sections, menus, and paragraphs.
+- Keep images of each service (if available) or use placeholders that reflect each industry (travel, sushi, Indian cuisine, fried chicken, Chinese/Asian, burger).
+- Maintain the sleek style from the brand book: minimal backgrounds, possible geometric or subtle patterns, and an overall sense of modern professionalism.
+
+---
+
+**End of Prompt**
+
+Copy and paste the above instructions into Replit’s AI Website Builder (or any similar tool). This prompt will guide it to produce a bilingual Hyhom Limited website, styled according to the official brand guidelines and populated with the relevant mission, vision, service descriptions, and contact details from the provided portfolio.
