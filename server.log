@@ -1,0 +1,495 @@
+
+> hyhom-connect@0.1.0 dev
+> next dev
+
+   ▲ Next.js 14.1.0
+   - Local:        http://localhost:3000
+   - Environments: .env.local
+
+ ✓ Ready in 1380ms
+ ✓ Compiled /src/middleware in 198ms (63 modules)
+ ⨯ node_modules/next/dist/build/webpack/loaders/next-middleware-loader.js?absolutePagePath=%2FUsers%2Fhanouf%2FHyhom-website%2Fhyhom-connect%2Fsrc%2Fmiddleware.ts&page=%2Fsrc%2Fmiddleware&rootDir=%2FUsers%2Fhanouf%2FHyhom-website%2Fhyhom-connect&matchers=&preferredRegion=&middlewareConfig=e30%3D! (11:0) @ <unknown>
+ ⨯ The Middleware "/src/middleware" must export a `middleware` or a `default` function
+null
+ ✓ Compiled /_error in 417ms (191 modules)
+ ✓ Compiled in 45ms (64 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 3s (716 modules)
+ ✓ Compiled in 112ms (386 modules)
+ ✓ Compiled /not-found in 240ms (687 modules)
+ ○ Compiling /[locale]/login ...
+ ✓ Compiled /[locale]/register in 4.1s (1123 modules)
+ ⨯ node_modules/next-intl/dist/development/config.js (6:8) @ getConfig
+ ⨯ Error: Couldn't find next-intl config file. Please follow the instructions at https://next-intl.dev/docs/getting-started/app-router
+    at LocaleLayout (./src/app/[locale]/layout.tsx:30:75)
+    at stringify (<anonymous>)
+null
+ ⨯ node_modules/next-intl/dist/development/config.js (6:8) @ getConfig
+ ⨯ Error: Couldn't find next-intl config file. Please follow the instructions at https://next-intl.dev/docs/getting-started/app-router
+    at LocaleLayout (./src/app/[locale]/layout.tsx:30:75)
+    at stringify (<anonymous>)
+digest: "2708337763"
+null
+ ⨯ node_modules/next-intl/dist/development/config.js (6:8) @ getConfig
+ ⨯ Error: Couldn't find next-intl config file. Please follow the instructions at https://next-intl.dev/docs/getting-started/app-router
+    at LocaleLayout (./src/app/[locale]/layout.tsx:30:75)
+    at stringify (<anonymous>)
+null
+ ⨯ node_modules/next-intl/dist/development/config.js (6:8) @ getConfig
+ ⨯ Error: Couldn't find next-intl config file. Please follow the instructions at https://next-intl.dev/docs/getting-started/app-router
+    at LocaleLayout (./src/app/[locale]/layout.tsx:30:75)
+    at stringify (<anonymous>)
+digest: "2708337763"
+null
+ ⨯ node_modules/next-intl/dist/development/config.js (6:8) @ getConfig
+ ⨯ Error: Couldn't find next-intl config file. Please follow the instructions at https://next-intl.dev/docs/getting-started/app-router
+    at LocaleLayout (./src/app/[locale]/layout.tsx:30:75)
+    at stringify (<anonymous>)
+null
+ ⨯ node_modules/next-intl/dist/development/config.js (6:8) @ getConfig
+ ⨯ Error: Couldn't find next-intl config file. Please follow the instructions at https://next-intl.dev/docs/getting-started/app-router
+    at LocaleLayout (./src/app/[locale]/layout.tsx:30:75)
+    at stringify (<anonymous>)
+digest: "2708337763"
+null
+ ⨯ node_modules/next-intl/dist/development/config.js (6:8) @ getConfig
+ ⨯ Error: Couldn't find next-intl config file. Please follow the instructions at https://next-intl.dev/docs/getting-started/app-router
+    at LocaleLayout (./src/app/[locale]/layout.tsx:30:75)
+    at stringify (<anonymous>)
+null
+ ⨯ node_modules/next-intl/dist/development/config.js (6:8) @ getConfig
+ ⨯ Error: Couldn't find next-intl config file. Please follow the instructions at https://next-intl.dev/docs/getting-started/app-router
+    at LocaleLayout (./src/app/[locale]/layout.tsx:30:75)
+    at stringify (<anonymous>)
+digest: "2708337763"
+null
+ ⨯ node_modules/next-intl/dist/development/config.js (6:8) @ getConfig
+ ⨯ Error: Couldn't find next-intl config file. Please follow the instructions at https://next-intl.dev/docs/getting-started/app-router
+    at LocaleLayout (./src/app/[locale]/layout.tsx:30:75)
+    at stringify (<anonymous>)
+null
+ ⨯ node_modules/next-intl/dist/development/config.js (6:8) @ getConfig
+ ⨯ Error: Couldn't find next-intl config file. Please follow the instructions at https://next-intl.dev/docs/getting-started/app-router
+    at LocaleLayout (./src/app/[locale]/layout.tsx:30:75)
+    at stringify (<anonymous>)
+digest: "2708337763"
+null
+ ✓ Compiled in 353ms (1150 modules)
+ ⨯ ./node_modules/next-intl/dist/index.react-client.js
+Error: Failed to read source code from /Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next-intl/dist/index.react-client.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next-intl/dist/index.react-client.js
+./src/app/[locale]/(auth)/login/page.tsx
+ ⨯ ./node_modules/next-intl/dist/index.react-client.js
+Error: Failed to read source code from /Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next-intl/dist/index.react-client.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next-intl/dist/index.react-client.js
+./src/app/[locale]/(auth)/login/page.tsx
+ ⨯ ./node_modules/next-intl/dist/index.react-client.js
+Error: Failed to read source code from /Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next-intl/dist/index.react-client.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next-intl/dist/index.react-client.js
+./src/app/[locale]/(auth)/login/page.tsx
+ ○ Compiling / ...
+ ⨯ ./node_modules/next-intl/dist/index.react-client.js
+Error: Failed to read source code from /Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next-intl/dist/index.react-client.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next-intl/dist/index.react-client.js
+./src/app/[locale]/(auth)/login/page.tsx
+ ⨯ ./node_modules/next-intl/dist/index.react-client.js
+Error: Failed to read source code from /Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next-intl/dist/index.react-client.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next-intl/dist/index.react-client.js
+./src/app/[locale]/(auth)/register/page.tsx
+ ✓ Compiled /_error in 423ms (992 modules)
+ ✓ Compiled /[locale]/login in 313ms (460 modules)
+ ○ Compiling /not-found ...
+ ✓ Compiled /not-found in 608ms (964 modules)
+ ✓ Compiled / in 49ms (471 modules)
+ ⨯ ./src/app/[locale]/page.tsx:1:0
+Module not found: Can't resolve 'next-intl'
+[0m[31m[1m>[22m[39m[90m 1 |[39m [36mimport[39m { useTranslations } [36mfrom[39m [32m'next-intl'[39m[33m;[39m[0m
+[0m [90m 2 |[39m [36mimport[39m [33mLink[39m [36mfrom[39m [32m'next/link'[39m[33m;[39m[0m
+[0m [90m 3 |[39m [36mimport[39m { [33mButton[39m } [36mfrom[39m [32m'@/components/ui/button'[39m[33m;[39m[0m
+[0m [90m 4 |[39m [36mimport[39m { [33mCard[39m } [36mfrom[39m [32m'@/components/ui/card'[39m[33m;[39m[0m
+
+https://nextjs.org/docs/messages/module-not-found
+ ⨯ ./src/app/[locale]/page.tsx:1:0
+Module not found: Can't resolve 'next-intl'
+[0m[31m[1m>[22m[39m[90m 1 |[39m [36mimport[39m { useTranslations } [36mfrom[39m [32m'next-intl'[39m[33m;[39m[0m
+[0m [90m 2 |[39m [36mimport[39m [33mLink[39m [36mfrom[39m [32m'next/link'[39m[33m;[39m[0m
+[0m [90m 3 |[39m [36mimport[39m { [33mButton[39m } [36mfrom[39m [32m'@/components/ui/button'[39m[33m;[39m[0m
+[0m [90m 4 |[39m [36mimport[39m { [33mCard[39m } [36mfrom[39m [32m'@/components/ui/card'[39m[33m;[39m[0m
+
+https://nextjs.org/docs/messages/module-not-found
+ ○ Compiling /_error ...
+ ✓ Compiled /not-found in 478ms (963 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled /[locale] in 101ms (480 modules)
+ ⨯ src/app/[locale]/page.tsx (51:15) @ features
+ ⨯ TypeError: Cannot read properties of undefined (reading 'features')
+    at LocalePage (./src/app/[locale]/page.tsx:81:22)
+    at stringify (<anonymous>)
+[0m [90m 49 |[39m     {[0m
+[0m [90m 50 |[39m       icon[33m:[39m [33mMessageCircle[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 51 |[39m       title[33m:[39m t[33m.[39mfeatures[33m.[39mmessaging[33m.[39mtitle[33m,[39m[0m
+[0m [90m    |[39m               [31m[1m^[22m[39m[0m
+[0m [90m 52 |[39m       description[33m:[39m t[33m.[39mfeatures[33m.[39mmessaging[33m.[39mdesc[33m,[39m[0m
+[0m [90m 53 |[39m     }[33m,[39m[0m
+[0m [90m 54 |[39m     {[0m
+ ⨯ src/app/[locale]/page.tsx (51:15) @ features
+ ⨯ TypeError: Cannot read properties of undefined (reading 'features')
+    at LocalePage (./src/app/[locale]/page.tsx:81:22)
+    at stringify (<anonymous>)
+[0m [90m 49 |[39m     {[0m
+[0m [90m 50 |[39m       icon[33m:[39m [33mMessageCircle[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 51 |[39m       title[33m:[39m t[33m.[39mfeatures[33m.[39mmessaging[33m.[39mtitle[33m,[39m[0m
+[0m [90m    |[39m               [31m[1m^[22m[39m[0m
+[0m [90m 52 |[39m       description[33m:[39m t[33m.[39mfeatures[33m.[39mmessaging[33m.[39mdesc[33m,[39m[0m
+[0m [90m 53 |[39m     }[33m,[39m[0m
+[0m [90m 54 |[39m     {[0m
+ ⨯ src/app/[locale]/page.tsx (51:15) @ features
+ ⨯ TypeError: Cannot read properties of undefined (reading 'features')
+    at LocalePage (./src/app/[locale]/page.tsx:81:22)
+    at stringify (<anonymous>)
+digest: "4242286243"
+[0m [90m 49 |[39m     {[0m
+[0m [90m 50 |[39m       icon[33m:[39m [33mMessageCircle[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 51 |[39m       title[33m:[39m t[33m.[39mfeatures[33m.[39mmessaging[33m.[39mtitle[33m,[39m[0m
+[0m [90m    |[39m               [31m[1m^[22m[39m[0m
+[0m [90m 52 |[39m       description[33m:[39m t[33m.[39mfeatures[33m.[39mmessaging[33m.[39mdesc[33m,[39m[0m
+[0m [90m 53 |[39m     }[33m,[39m[0m
+[0m [90m 54 |[39m     {[0m
+ ⨯ src/app/[locale]/page.tsx (51:15) @ features
+ ⨯ TypeError: Cannot read properties of undefined (reading 'features')
+    at LocalePage (./src/app/[locale]/page.tsx:81:22)
+    at stringify (<anonymous>)
+digest: "4242286243"
+[0m [90m 49 |[39m     {[0m
+[0m [90m 50 |[39m       icon[33m:[39m [33mMessageCircle[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 51 |[39m       title[33m:[39m t[33m.[39mfeatures[33m.[39mmessaging[33m.[39mtitle[33m,[39m[0m
+[0m [90m    |[39m               [31m[1m^[22m[39m[0m
+[0m [90m 52 |[39m       description[33m:[39m t[33m.[39mfeatures[33m.[39mmessaging[33m.[39mdesc[33m,[39m[0m
+[0m [90m 53 |[39m     }[33m,[39m[0m
+[0m [90m 54 |[39m     {[0m
+ ✓ Compiled in 692ms (1010 modules)
+ ✓ Compiled in 467ms (1005 modules)
+ ✓ Compiled / in 201ms (986 modules)
+ ✓ Compiled /[locale]/login in 186ms (481 modules)
+ ✓ Compiled /not-found in 342ms (987 modules)
+ ✓ Compiled in 801ms (1009 modules)
+ ✓ Compiled in 272ms (1009 modules)
+ ✓ Compiled in 337ms (982 modules)
+ ○ Compiling /not-found ...
+ ✓ Compiled /not-found in 518ms (987 modules)
+ ✓ Compiled in 690ms (1046 modules)
+ ✓ Compiled in 367ms (1009 modules)
+ ✓ Compiled in 187ms (528 modules)
+ ✓ Compiled in 265ms (1046 modules)
+ ○ Compiling /api/test-supabase ...
+ ✓ Compiled /api/test-supabase in 570ms (580 modules)
+ ✓ Compiled in 202ms (528 modules)
+ ✓ Compiled in 418ms (1145 modules)
+ ✓ Compiled in 373ms (1108 modules)
+ ✓ Compiled /api/auth/login in 186ms (580 modules)
+API route: Attempting login for: admin@admin.com
+API route: Supabase client created
+API route: Auth response: { data: 'admin@admin.com', error: null }
+ ○ Compiling /[locale]/dashboard ...
+ ⨯ ./src/app/[locale]/(dashboard)/dashboard/page.tsx:3:0
+Module not found: Can't resolve 'next-intl'
+[0m [90m 1 |[39m [32m'use client'[39m[33m;[39m[0m
+[0m [90m 2 |[39m[0m
+[0m[31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m { useTranslations } [36mfrom[39m [32m'next-intl'[39m[33m;[39m[0m
+[0m [90m 4 |[39m [36mimport[39m { useAuth } [36mfrom[39m [32m'@/hooks/useAuth'[39m[33m;[39m[0m
+[0m [90m 5 |[39m [36mimport[39m { [33mButton[39m } [36mfrom[39m [32m'@/components/ui/button'[39m[33m;[39m[0m
+[0m [90m 6 |[39m [36mimport[39m { [33mCard[39m[33m,[39m [33mCardContent[39m[33m,[39m [33mCardDescription[39m[33m,[39m [33mCardHeader[39m[33m,[39m [33mCardTitle[39m } [36mfrom[39m [32m'@/components/ui/card'[39m[33m;[39m[0m
+
+https://nextjs.org/docs/messages/module-not-found
+ ⨯ ./src/app/[locale]/(dashboard)/dashboard/page.tsx:3:0
+Module not found: Can't resolve 'next-intl'
+[0m [90m 1 |[39m [32m'use client'[39m[33m;[39m[0m
+[0m [90m 2 |[39m[0m
+[0m[31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m { useTranslations } [36mfrom[39m [32m'next-intl'[39m[33m;[39m[0m
+[0m [90m 4 |[39m [36mimport[39m { useAuth } [36mfrom[39m [32m'@/hooks/useAuth'[39m[33m;[39m[0m
+[0m [90m 5 |[39m [36mimport[39m { [33mButton[39m } [36mfrom[39m [32m'@/components/ui/button'[39m[33m;[39m[0m
+[0m [90m 6 |[39m [36mimport[39m { [33mCard[39m[33m,[39m [33mCardContent[39m[33m,[39m [33mCardDescription[39m[33m,[39m [33mCardHeader[39m[33m,[39m [33mCardTitle[39m } [36mfrom[39m [32m'@/components/ui/card'[39m[33m;[39m[0m
+
+https://nextjs.org/docs/messages/module-not-found
+ ⨯ ./src/components/layout/DashboardLayout.tsx:3:0
+Module not found: Can't resolve 'next-intl'
+[0m [90m 1 |[39m [32m'use client'[39m[33m;[39m[0m
+[0m [90m 2 |[39m[0m
+[0m[31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m { useTranslations } [36mfrom[39m [32m'next-intl'[39m[33m;[39m[0m
+[0m [90m 4 |[39m [36mimport[39m { useAuth } [36mfrom[39m [32m'@/hooks/useAuth'[39m[33m;[39m[0m
+[0m [90m 5 |[39m [36mimport[39m { [33mButton[39m } [36mfrom[39m [32m'@/components/ui/button'[39m[33m;[39m[0m
+[0m [90m 6 |[39m [36mimport[39m { [33mAvatar[39m[33m,[39m [33mAvatarFallback[39m[33m,[39m [33mAvatarImage[39m } [36mfrom[39m [32m'@/components/ui/avatar'[39m[33m;[39m[0m
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/[locale]/(dashboard)/layout.tsx
+ ✓ Compiled /not-found in 140ms (602 modules)
+ ✓ Compiled /[locale]/dashboard in 121ms (1139 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 299ms (602 modules)
+ ✓ Compiled in 302ms (602 modules)
+ ✓ Compiled in 204ms (602 modules)
+ ✓ Compiled in 272ms (602 modules)
+ ○ Compiling /not-found ...
+ ✓ Compiled /not-found in 658ms (1139 modules)
+ ✓ Compiled /api/auth/login in 310ms (661 modules)
+API route: Attempting login for: admin@admin.com
+API route: Supabase client created
+API route: Auth response: { data: 'admin@admin.com', error: null }
+ ✓ Compiled in 400ms (1161 modules)
+ ✓ Compiled in 306ms (602 modules)
+ ✓ Compiled in 335ms (1020 modules)
+ ✓ Compiled in 832ms (1130 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 263ms (1157 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 316ms (1157 modules)
+ ⨯ src/components/layout/DashboardLayout.tsx (45:37) @ useAuth
+ ⨯ ReferenceError: useAuth is not defined
+    at DashboardLayout (./src/components/layout/DashboardLayout.tsx:57:40)
+[0m [90m 43 |[39m[0m
+[0m [90m 44 |[39m [36mexport[39m [36mdefault[39m [36mfunction[39m [33mDashboardLayout[39m({ children }[33m:[39m [33mDashboardLayoutProps[39m) {[0m
+[0m[31m[1m>[22m[39m[90m 45 |[39m   [36mconst[39m { user[33m,[39m profile[33m,[39m signOut } [33m=[39m useAuth()[33m;[39m[0m
+[0m [90m    |[39m                                     [31m[1m^[22m[39m[0m
+[0m [90m 46 |[39m   [36mconst[39m pathname [33m=[39m usePathname()[33m;[39m[0m
+[0m [90m 47 |[39m[0m
+[0m [90m 48 |[39m   [36mconst[39m handleSignOut [33m=[39m [36masync[39m () [33m=>[39m {[0m
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 242ms (1157 modules)
+ ⨯ src/components/layout/DashboardLayout.tsx (88:40) @ profile
+ ⨯ ReferenceError: profile is not defined
+    at DashboardLayout (./src/components/layout/DashboardLayout.tsx:157:70)
+[0m [90m 86 |[39m                   [33m<[39m[33mButton[39m variant[33m=[39m[32m"ghost"[39m className[33m=[39m[32m"relative h-8 w-8 rounded-full"[39m[33m>[39m[0m
+[0m [90m 87 |[39m                     [33m<[39m[33mAvatar[39m className[33m=[39m[32m"h-8 w-8"[39m[33m>[39m[0m
+[0m[31m[1m>[22m[39m[90m 88 |[39m                       [33m<[39m[33mAvatarImage[39m src[33m=[39m{profile[33m?[39m[33m.[39mavatar_url [33m||[39m [32m''[39m} alt[33m=[39m{profile[33m?[39m[33m.[39mfull_name} [33m/[39m[33m>[39m[0m
+[0m [90m    |[39m                                        [31m[1m^[22m[39m[0m
+[0m [90m 89 |[39m                       [33m<[39m[33mAvatarFallback[39m[33m>[39m[0m
+[0m [90m 90 |[39m                         {profile[33m?[39m[33m.[39mfull_name[33m?[39m[33m.[39m[[35m0[39m] [33m||[39m user[33m?[39m[33m.[39memail[33m?[39m[33m.[39m[[35m0[39m][33m?[39m[33m.[39mtoUpperCase()}[0m
+[0m [90m 91 |[39m                       [33m<[39m[33m/[39m[33mAvatarFallback[39m[33m>[39m[0m
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 336ms (1157 modules)
+ ⨯ src/components/layout/DashboardLayout.tsx (102:25) @ profile
+ ⨯ ReferenceError: profile is not defined
+    at DashboardLayout (./src/components/layout/DashboardLayout.tsx:207:79)
+[0m [90m 100 |[39m                       [33m<[39m[33m/[39m[33mp[39m[33m>[39m[0m
+[0m [90m 101 |[39m                       [33m<[39m[33mp[39m className[33m=[39m[32m"text-xs leading-none text-muted-foreground"[39m[33m>[39m[0m
+[0m[31m[1m>[22m[39m[90m 102 |[39m                         {profile[33m?[39m[33m.[39mposition [33m||[39m user[33m?[39m[33m.[39memail}[0m
+[0m [90m     |[39m                         [31m[1m^[22m[39m[0m
+[0m [90m 103 |[39m                       [33m<[39m[33m/[39m[33mp[39m[33m>[39m[0m
+[0m [90m 104 |[39m                     [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m[0m
+[0m [90m 105 |[39m                   [33m<[39m[33m/[39m[33mDropdownMenuLabel[39m[33m>[39m[0m
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 308ms (1157 modules)
+ ⨯ src/app/[locale]/page.tsx (51:15) @ features
+ ⨯ TypeError: Cannot read properties of undefined (reading 'features')
+    at LocalePage (./src/app/[locale]/page.tsx:81:22)
+    at stringify (<anonymous>)
+[0m [90m 49 |[39m     {[0m
+[0m [90m 50 |[39m       icon[33m:[39m [33mMessageCircle[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 51 |[39m       title[33m:[39m t[33m.[39mfeatures[33m.[39mmessaging[33m.[39mtitle[33m,[39m[0m
+[0m [90m    |[39m               [31m[1m^[22m[39m[0m
+[0m [90m 52 |[39m       description[33m:[39m t[33m.[39mfeatures[33m.[39mmessaging[33m.[39mdesc[33m,[39m[0m
+[0m [90m 53 |[39m     }[33m,[39m[0m
+[0m [90m 54 |[39m     {[0m
+ ⨯ src/app/[locale]/page.tsx (51:15) @ features
+ ⨯ TypeError: Cannot read properties of undefined (reading 'features')
+    at LocalePage (./src/app/[locale]/page.tsx:81:22)
+    at stringify (<anonymous>)
+[0m [90m 49 |[39m     {[0m
+[0m [90m 50 |[39m       icon[33m:[39m [33mMessageCircle[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 51 |[39m       title[33m:[39m t[33m.[39mfeatures[33m.[39mmessaging[33m.[39mtitle[33m,[39m[0m
+[0m [90m    |[39m               [31m[1m^[22m[39m[0m
+[0m [90m 52 |[39m       description[33m:[39m t[33m.[39mfeatures[33m.[39mmessaging[33m.[39mdesc[33m,[39m[0m
+[0m [90m 53 |[39m     }[33m,[39m[0m
+[0m [90m 54 |[39m     {[0m
+ ✓ Compiled /api/auth/login in 395ms (656 modules)
+API route: Attempting login for: admin@admin.com
+API route: Supabase client created
+API route: Auth response: { data: 'admin@admin.com', error: null }
+ ⨯ src/app/[locale]/page.tsx (51:15) @ features
+ ⨯ TypeError: Cannot read properties of undefined (reading 'features')
+    at LocalePage (./src/app/[locale]/page.tsx:81:22)
+    at stringify (<anonymous>)
+[0m [90m 49 |[39m     {[0m
+[0m [90m 50 |[39m       icon[33m:[39m [33mMessageCircle[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 51 |[39m       title[33m:[39m t[33m.[39mfeatures[33m.[39mmessaging[33m.[39mtitle[33m,[39m[0m
+[0m [90m    |[39m               [31m[1m^[22m[39m[0m
+[0m [90m 52 |[39m       description[33m:[39m t[33m.[39mfeatures[33m.[39mmessaging[33m.[39mdesc[33m,[39m[0m
+[0m [90m 53 |[39m     }[33m,[39m[0m
+[0m [90m 54 |[39m     {[0m
+API route: Attempting login for: admin@admin.com
+API route: Supabase client created
+API route: Auth response: { data: 'admin@admin.com', error: null }
+ ⨯ src/app/[locale]/page.tsx (51:15) @ features
+ ⨯ TypeError: Cannot read properties of undefined (reading 'features')
+    at LocalePage (./src/app/[locale]/page.tsx:81:22)
+    at stringify (<anonymous>)
+[0m [90m 49 |[39m     {[0m
+[0m [90m 50 |[39m       icon[33m:[39m [33mMessageCircle[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 51 |[39m       title[33m:[39m t[33m.[39mfeatures[33m.[39mmessaging[33m.[39mtitle[33m,[39m[0m
+[0m [90m    |[39m               [31m[1m^[22m[39m[0m
+[0m [90m 52 |[39m       description[33m:[39m t[33m.[39mfeatures[33m.[39mmessaging[33m.[39mdesc[33m,[39m[0m
+[0m [90m 53 |[39m     }[33m,[39m[0m
+[0m [90m 54 |[39m     {[0m
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 530ms (1256 modules)
+API route: Attempting login for: admin@admin.com
+API route: Supabase client created
+API route: Auth response: { data: 'admin@admin.com', error: null }
+ ✓ Compiled /not-found in 249ms (1234 modules)
+ ✓ Compiled in 320ms (1261 modules)
+ ✓ Compiled in 283ms (1261 modules)
+ ✓ Compiled in 247ms (602 modules)
+ ✓ Compiled in 186ms (600 modules)
+ ✓ Compiled /[locale]/channels in 477ms (1140 modules)
+ ✓ Compiled /[locale]/messages in 161ms (1146 modules)
+ ✓ Compiled /not-found in 125ms (1151 modules)
+ ✓ Compiled in 809ms (1169 modules)
+ ✓ Compiled in 255ms (1145 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 131ms (607 modules)
+ ✓ Compiled in 441ms (1145 modules)
+ ✓ Compiled in 608ms (1176 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 417ms (1176 modules)
+ ⨯ src/app/[locale]/(dashboard)/layout.tsx (14:28) @ useAuth
+ ⨯ ReferenceError: useAuth is not defined
+    at DashboardLayoutWrapper (layout.tsx:18:31)
+[0m [90m 12 |[39m   children[33m:[39m [33mReact[39m[33m.[39m[33mReactNode[39m[33m;[39m[0m
+[0m [90m 13 |[39m }) {[0m
+[0m[31m[1m>[22m[39m[90m 14 |[39m   [36mconst[39m { user[33m,[39m loading } [33m=[39m useAuth()[33m;[39m[0m
+[0m [90m    |[39m                            [31m[1m^[22m[39m[0m
+[0m [90m 15 |[39m   [36mconst[39m router [33m=[39m useRouter()[33m;[39m[0m
+[0m [90m 16 |[39m[0m
+[0m [90m 17 |[39m   useEffect(() [33m=>[39m {[0m
+ ✓ Compiled in 289ms (1176 modules)
+ ✓ Compiled in 354ms (1176 modules)
+ ✓ Compiled in 381ms (1176 modules)
+ ✓ Compiled in 235ms (1178 modules)
+ ✓ Compiled in 294ms (1178 modules)
+ ✓ Compiled in 234ms (1178 modules)
+ ✓ Compiled in 269ms (1178 modules)
+ ✓ Compiled in 309ms (1178 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 294ms (610 modules)
+ ✓ Compiled in 147ms (610 modules)
+ ✓ Compiled in 289ms (610 modules)
+ ✓ Compiled in 125ms (610 modules)
+ ✓ Compiled in 216ms (610 modules)
+ ✓ Compiled in 244ms (610 modules)
+ ✓ Compiled in 209ms (610 modules)
+ ✓ Compiled in 155ms (610 modules)
+ ✓ Compiled in 479ms (1215 modules)
+ ✓ Compiled in 346ms (610 modules)
+ ✓ Compiled in 490ms (1178 modules)
+ ✓ Compiled in 730ms (1215 modules)
+ ✓ Compiled in 759ms (1178 modules)
+ ✓ Compiled in 231ms (1181 modules)
+ ⨯ ./src/app/[locale]/(dashboard)/channels/page.tsx:10:0
+Module not found: Can't resolve '@/components/ui/textarea'
+[0m [90m  8 |[39m [36mimport[39m { [33mInput[39m } [36mfrom[39m [32m'@/components/ui/input'[39m[33m;[39m[0m
+[0m [90m  9 |[39m [36mimport[39m { [33mLabel[39m } [36mfrom[39m [32m'@/components/ui/label'[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m 10 |[39m [36mimport[39m { [33mTextarea[39m } [36mfrom[39m [32m'@/components/ui/textarea'[39m[33m;[39m[0m
+[0m [90m 11 |[39m [36mimport[39m { [33mSelect[39m[33m,[39m [33mSelectContent[39m[33m,[39m [33mSelectItem[39m[33m,[39m [33mSelectTrigger[39m[33m,[39m [33mSelectValue[39m } [36mfrom[39m [32m'@/components/ui/select'[39m[33m;[39m[0m
+[0m [90m 12 |[39m [36mimport[39m { [33mBadge[39m } [36mfrom[39m [32m'@/components/ui/badge'[39m[33m;[39m[0m
+[0m [90m 13 |[39m [36mimport[39m { useToast } [36mfrom[39m [32m'@/hooks/use-toast'[39m[33m;[39m[0m
+
+https://nextjs.org/docs/messages/module-not-found
+ ✓ Compiled in 601ms (1205 modules)
+ ✓ Compiled in 229ms (623 modules)
+ ✓ Compiled in 270ms (1178 modules)
+ ✓ Compiled in 144ms (623 modules)
+ ✓ Compiled in 812ms (1273 modules)
+ ✓ Compiled in 237ms (657 modules)
+ ✓ Compiled in 319ms (657 modules)
+ ✓ Compiled in 353ms (1273 modules)
+ ✓ Compiled in 271ms (1275 modules)
+ ✓ Compiled in 440ms (1287 modules)
+ ✓ Compiled in 222ms (1287 modules)
+ ✓ Compiled in 235ms (664 modules)
+ ✓ Compiled /api/setup-database in 463ms (722 modules)
+Database setup error: Error: supabaseKey is required.
+    at new SupabaseClient (webpack-internal:///(rsc)/./node_modules/@supabase/supabase-js/dist/module/SupabaseClient.js:69:33)
+    at createClient (webpack-internal:///(rsc)/./node_modules/@supabase/supabase-js/dist/module/index.js:59:12)
+    at POST (webpack-internal:///(rsc)/./src/app/api/setup-database/route.ts:12:93)
+    at /Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:63815
+    at /Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/server/lib/trace/tracer.js:133:36
+    at NoopContextManager.with (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NoopTracer.startActiveSpan (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18093)
+    at ProxyTracer.startActiveSpan (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18854)
+    at /Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/server/lib/trace/tracer.js:122:103
+    at NoopContextManager.with (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NextTracerImpl.trace (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/server/lib/trace/tracer.js:122:28)
+    at /Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:56866
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Object.wrap (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:37102)
+    at /Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54639
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Object.wrap (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:36351)
+    at /Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54601
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at eU.execute (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:53994)
+    at eU.handle (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:65073)
+    at doRender (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/server/base-server.js:1333:60)
+    at cacheEntry.responseCache.get.routeKind (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/server/base-server.js:1555:34)
+    at ResponseCache.get (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/server/response-cache/index.js:49:26)
+    at DevServer.renderToResponseWithComponentsImpl (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/server/base-server.js:1463:53)
+    at /Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/server/base-server.js:992:121
+    at NextTracerImpl.trace (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/server/lib/trace/tracer.js:104:20)
+    at DevServer.renderToResponseWithComponents (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/server/base-server.js:992:41)
+    at DevServer.renderPageComponent (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/server/base-server.js:1856:35)
+    at async DevServer.renderToResponseImpl (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/server/base-server.js:1894:32)
+    at async DevServer.pipeImpl (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/server/base-server.js:911:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/server/next-server.js:271:17)
+    at async DevServer.handleRequestImpl (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/server/base-server.js:807:17)
+    at async /Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/server/dev/next-dev-server.js:331:20
+    at async Span.traceAsyncFn (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/trace/trace.js:151:20)
+    at async DevServer.handleRequest (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/server/dev/next-dev-server.js:328:24)
+    at async invokeRender (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/server/lib/router-server.js:163:21)
+    at async handleRequest (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/server/lib/router-server.js:342:24)
+    at async requestHandlerImpl (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/server/lib/router-server.js:366:13)
+    at async Server.requestListener (/Users/hanouf/Hyhom-website/hyhom-connect/node_modules/next/dist/server/lib/start-server.js:140:13)
+ ✓ Compiled in 320ms (1386 modules)
+ ✓ Compiled /not-found in 392ms (1265 modules)
+ ✓ Compiled in 410ms (1260 modules)
+ ✓ Compiled in 171ms (664 modules)
+ ✓ Compiled in 429ms (1287 modules)
+ ✓ Compiled in 228ms (1287 modules)
+ ✓ Compiled in 265ms (1287 modules)
+ ✓ Compiled in 236ms (1287 modules)
+ ✓ Compiled in 160ms (664 modules)
+ ✓ Compiled in 157ms (664 modules)
+ ✓ Compiled in 241ms (664 modules)
+ ✓ Compiled in 438ms (1287 modules)
+ ✓ Compiled in 377ms (1260 modules)
+ ✓ Compiled in 351ms (1260 modules)
+ ✓ Compiled in 238ms (1260 modules)

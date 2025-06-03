@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# HYHOM Connect - حيهم كونكت
 
-## Getting Started
+Internal communication platform for HYHOM LTD employees.
 
-First, run the development server:
+## 🚀 Quick Start
 
+### Prerequisites
+- Node.js 18+
+- Supabase account
+- Git
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd hyhom-connect
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Set up environment variables:
+```bash
+cp .env.local.example .env.local
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Update `.env.local` with your Supabase credentials:
+- `NEXT_PUBLIC_SUPABASE_URL`: Your Supabase project URL
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`: Your Supabase anon key
 
-## Learn More
+4. Set up the database:
+- Go to your Supabase project dashboard
+- Navigate to SQL Editor
+- Copy and execute the contents of `supabase/schema.sql`
 
-To learn more about Next.js, take a look at the following resources:
+5. Run the development server:
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Open [http://localhost:3000](http://localhost:3000) to see the application.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 🏗️ Tech Stack
 
-## Deploy on Vercel
+- **Frontend**: Next.js 14.1.0 (App Router)
+- **Backend**: Supabase (PostgreSQL, Auth, Realtime, Storage)
+- **Styling**: Tailwind CSS + shadcn/ui
+- **Language**: TypeScript
+- **State Management**: Zustand
+- **Internationalization**: next-intl (Arabic/English)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📁 Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+hyhom-connect/
+├── src/
+│   ├── app/
+│   │   └── [locale]/      # Locale-specific pages
+│   ├── components/        # React components
+│   ├── config/           # Configuration files
+│   ├── hooks/            # Custom React hooks
+│   ├── lib/              # Utility functions
+│   ├── messages/         # i18n translations
+│   ├── store/            # Zustand stores
+│   └── types/            # TypeScript types
+├── public/               # Static assets
+└── supabase/            # Database schema
+```
+
+## 🌍 Internationalization
+
+The app supports both Arabic and English with full RTL support:
+- Default language: Arabic
+- Language switcher available in the UI
+- All text content is translatable
+
+## 🔐 Security
+
+- Row Level Security (RLS) enabled on all tables
+- Role-based access control (Admin, Supervisor, Employee)
+- JWT-based authentication
+- Secure password requirements
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+1. Push your code to GitHub
+2. Import the project to Vercel
+3. Add environment variables
+4. Deploy
+
+### Manual Deployment
+```bash
+npm run build
+npm start
+```
+
+## 📝 Development Phases
+
+- [x] Phase 1: Foundation (Setup, Auth, Profiles)
+- [ ] Phase 2: Core Chat (Messages, Channels, Real-time)
+- [ ] Phase 3: Enhanced Features (DMs, Notifications, Admin)
+- [ ] Phase 4: Polish & Launch
+
+## 🤝 Contributing
+
+This is an internal project for HYHOM LTD. For any questions or issues, please contact the development team.
+
+## 📄 License
+
+© 2025 HYHOM LTD. All rights reserved.

@@ -1,0 +1,90 @@
+{
+  "common": {
+    "appName": "HYHOM Connect",
+    "welcome": "Welcome",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "search": "Search",
+    "logout": "Logout"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "fullName": "Full Name",
+    "forgotPassword": "Forgot Password?",
+    "rememberMe": "Remember Me",
+    "loginSuccess": "Login successful",
+    "registerSuccess": "Registration successful",
+    "invalidCredentials": "Invalid email or password",
+    "emailRequired": "Email is required",
+    "passwordRequired": "Password is required",
+    "passwordMismatch": "Passwords do not match"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "channels": "Channels",
+    "directMessages": "Direct Messages",
+    "profile": "Profile",
+    "settings": "Settings",
+    "admin": "Admin"
+  },
+  "chat": {
+    "typeMessage": "Type a message...",
+    "send": "Send",
+    "online": "Online",
+    "offline": "Offline",
+    "away": "Away",
+    "busy": "Busy",
+    "noMessages": "No messages yet",
+    "newMessage": "New message"
+  },
+  "profile": {
+    "editProfile": "Edit Profile",
+    "phone": "Phone",
+    "department": "Department",
+    "position": "Position",
+    "bio": "Bio",
+    "joinedDate": "Joined Date",
+    "uploadAvatar": "Upload Avatar"
+  },
+  "landing": {
+    "hero": {
+      "title": "Connect Your Team, Empower Your Business",
+      "subtitle": "A secure internal communication platform designed for HYHOM employees",
+      "cta": {
+        "start": "Get Started",
+        "login": "Login to Your Account"
+      }
+    },
+    "features": {
+      "title": "Everything You Need to Stay Connected",
+      "messaging": {
+        "title": "Real-time Messaging",
+        "description": "Instant communication with colleagues across all departments"
+      },
+      "collaboration": {
+        "title": "Team Collaboration",
+        "description": "Create channels for projects, departments, and topics"
+      },
+      "security": {
+        "title": "Enterprise Security",
+        "description": "Your data is protected with industry-standard encryption"
+      },
+      "localization": {
+        "title": "Bilingual Support",
+        "description": "Full Arabic and English support for all users"
+      }
+    },
+    "footer": {
+      "rights": "All rights reserved."
+    }
+  }
+}

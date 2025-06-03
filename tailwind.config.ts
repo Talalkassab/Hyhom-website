@@ -8,6 +8,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        'hyhom-primary': '#2a577e',
+        'hyhom-secondary': '#6fbeb8',
+        'hyhom-dark': '#1a3a52',
+        'hyhom-light': '#e8f4f2',
+      },
+      fontFamily: {
+        'english': ['Poppins', 'sans-serif'],
+        'arabic': ['Noto Sans Arabic', 'Tajawal', 'sans-serif'],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -15,6 +25,9 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-animate'),
+    require('tailwindcss-dir')(),
+  ],
 };
 export default config;
